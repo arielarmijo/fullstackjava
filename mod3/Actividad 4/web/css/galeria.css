@@ -1,0 +1,33 @@
+main > div {
+  border: 0px dotted black;
+  margin: auto;
+  width: 1050px;
+  overflow: auto;
+}
+
+.div1 .div-image {
+  margin: 10px;
+  border: 5px solid blue;
+  padding: 10px;
+  width: 300px;
+  height: auto;
+  float:left;
+}
+
+.div2 {
+  clear:left;
+}
+
+.div2 .div-image {
+  margin: 10px;
+  border: 5px solid blue;
+  padding: 10px;
+  width: 300px;
+  height: auto;
+  float:left;
+}
+
+img{
+  width: 300px;
+  height: 300px;
+}

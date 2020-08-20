@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Contacto</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/principal.css">
+    <link rel="stylesheet" href="css/formulario.css">
+  </head>
+  
+  <body>
+
+    <header>
+      <h1>SPA Buenas Vacaciones</h1>
+    </header>
+
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="productos.html">Productos</a>
+      <a href="galeria.html">Galería</a>
+      <a href="contacto.html" class="active">Contacto</a>
+      <div class="clearfix"></div>
+    </nav>
+
+    <main>
+
+      <h2>Formulario de Contacto</h2>
+
+      <form action="procesamiento.html">
+
+        <div class="row">
+          <label class="col-1" for="tfdNombre">Nombre:</label>
+          <input class="col-2" type="text" id="tfdNombre" name="tfdNombre" title="Ingrese su primer nombre."/>
+        </div>
+        
+        <div class="row">
+          <label class="col-1" for="tfdApellido">Apellido:</label>
+          <input class="col-2" type="text" id="tfdApellido" name="tfdApellido" title="Ingrese su apellido paterno"/>
+        </div>
+        
+        <div class="row">
+          <label class="col-1" for="tfdRut">Rut:</label>
+          <input class="col-2" type="text" id="tfdRut" name="tfdRut" title="Ingrese su rut."/>
+        </div>
+        
+        <div class="row">
+          <label class="col-1" for="tfdDireccion">Dirección:</label>
+          <input class="col-2" type="text" id="tfdDireccion" name="tfdDireccion" title="Ingrese su dirección."/>
+        </div>
+
+        <div class="row">
+          <label class="col-1" >Género:</label>
+          <div class="col-2">
+            <input type="radio" name="genero" id="masculino" value="1">
+            <label for="masculino">Masculino</label>
+            <input type="radio" name="genero" id="femenino" value="1">
+            <label for="femenino">Femenino</label>
+          </div>
+        </div>
+        
+        <div class="row">
+          <label class="col-1" for="profesion">Profesión:</label>
+          <select class="col-2" id="profesion" name="profesion">
+              <option>Seleccione una profesión</option>
+              <option>Ingeniero</option>
+              <option>Arquitecto</option>
+              <option>Ingeniero</option>
+              <option>Médico</option>
+              <option>Abogado</option>
+            </select>
+        </div>
+        
+        <div class="row">
+          <label class="col-1" for="tfdEmail">Email:</label>
+          <input class="col-2" type="email" id="tfdEmail" name="tfdEmail" title="Ingrese su email."/>
+        </div>
+        
+        <div class="row">
+          <label id="txaMensajeId" class="col-1" for="txaMensaje">Mensaje:</label>
+          <textarea class="col-2" id="txaMensaje" name="txaMensaje" placeholder="Ingrese su mensaje."></textarea>
+        </div>
+        
+        <div class="row buttons">
+          <input type="reset" value="Limpiar">
+          <input type="submit" value="Enviar">
+        </div>
+
+      </form>
+
+    </main>
+
+  </body>
+
+</html>

@@ -1,0 +1,68 @@
+main > h2 {
+  text-align: center;
+}
+
+form {
+  border: 0px dotted gray;
+  margin: 0px auto 50px auto;
+  width: 90%;
+}
+
+.row {
+  border: 0px dotted red;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0px auto 10px;
+  width: 50%;
+  overflow: auto;
+}
+
+.col-1 {
+  border: 0px dotted blue;
+  margin-right: 10px;
+  padding: 0px;
+  width: 20%;
+  height: auto;
+  text-align: right;
+  overflow: hidden;
+}
+
+.col-2 {
+  width: 80%;
+}
+
+input {
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 5px 5px;
+}
+
+.buttons {
+  border: 0px dotted gray;
+  justify-content: center;
+}
+
+.buttons input {
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 5px 10px;
+  font-weight: bold;;
+}
+
+.buttons input:hover {
+  background-color: lightgreen;
+  cursor: pointer;
+}
+
+#txaMensajeId {
+  align-self: flex-start;
+  
+}
+
+#txaMensaje {
+  height: 100px;
+  border: 1px solid gray;
+}

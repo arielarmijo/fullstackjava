@@ -1,0 +1,48 @@
+/*Header*/
+header {
+  border: 1px dotted gray;
+  margin: 0 auto;
+  padding: 0;
+  width: 90%;
+}
+
+header > h1 {
+  color: lightgreen;
+  text-align: center;
+  text-shadow: 2px 2px 2px black;
+}
+
+/*Nav*/
+nav {
+  border: 1px dotted gray;
+  margin: auto;
+  width: 90%;
+  background-color: greenyellow;
+  overflow: auto;
+}
+
+nav a {
+  border: 1px solid gray;
+  text-decoration: none;
+  color: black;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 0;
+  padding: 5px 10px;
+  float: left;
+}
+
+nav .active {
+  background-color: green;
+}
+
+nav a:hover {
+  background-color: lightgreen;
+}
+
+/*Principal*/
+main {
+  border: 1px solid gray;
+  margin: 0px auto;
+  width: 90%;
+}
