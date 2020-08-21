@@ -1,23 +1,25 @@
 /*Header*/
 header {
-  border: 0px dotted gray;
+  border: 0px ;
   margin: 0 auto;
   padding: 0;
   width: 90%;
+  
 }
 
 header > h1 {
-  color: lightgreen;
+  color: burlywood;
   text-align: center;
   text-shadow: 2px 2px 2px black;
+  font-size: 2.7em;
 }
 
 /*Nav*/
 nav {
   border: 0px dotted gray;
   margin: auto;
-  width: 90%;
-  background-color: greenyellow;
+  width: 80%;
+  background-color: beige;
   overflow: auto;
 }
 
@@ -25,7 +27,7 @@ nav a {
   border: 0px solid gray;
   text-decoration: none;
   color: black;
-  font-size: 1.2em;
+  font-size: 1.5em;
   font-weight: bold;
   margin: 0;
   padding: 5px 10px;
@@ -33,11 +35,11 @@ nav a {
 }
 
 nav .active {
-  background-color: green;
+  background-color: burlywood;
 }
 
 nav a:hover {
-  background-color: lightgreen;
+  background-color: blueviolet;
 }
 
 /*Principal*/
@@ -46,8 +48,31 @@ main {
   margin: 0px auto;
   width: 90%;
   overflow: hidden;
+  
 }
 
 main h2 {
   text-align: center;
+  color: black;
+  font-size: 2em;
+  font-weight: bold;
+  
 }
+
+main h3 {
+  text-align: center;
+  color: white;
+  font-size: 2em;
+  font-weight: bold;
+  
+}
+
+main h4 {
+  text-align: center;
+  color: white;
+  font-size: 1.5em;
+  font-weight: bold;
+  
+}
+  
+  
