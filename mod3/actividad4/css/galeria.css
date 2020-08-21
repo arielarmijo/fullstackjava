@@ -1,12 +1,7 @@
-main h2 {
-  text-align: center;
-}
-
 main > div {
   border: 0px dotted black;
   margin: auto;
   width: 1050px;
-  
 }
 
 .div1 .div-image {

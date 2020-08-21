@@ -1,6 +1,6 @@
 /*Header*/
 header {
-  border: 1px dotted gray;
+  border: 0px dotted gray;
   margin: 0 auto;
   padding: 0;
   width: 90%;
@@ -14,7 +14,7 @@ header > h1 {
 
 /*Nav*/
 nav {
-  border: 1px dotted gray;
+  border: 0px dotted gray;
   margin: auto;
   width: 90%;
   background-color: greenyellow;
@@ -22,7 +22,7 @@ nav {
 }
 
 nav a {
-  border: 1px solid gray;
+  border: 0px solid gray;
   text-decoration: none;
   color: black;
   font-size: 1.2em;
@@ -42,8 +42,12 @@ nav a:hover {
 
 /*Principal*/
 main {
-  border: 1px solid gray;
+  border: 0px solid gray;
   margin: 0px auto;
   width: 90%;
   overflow: hidden;
+}
+
+main h2 {
+  text-align: center;
 }
