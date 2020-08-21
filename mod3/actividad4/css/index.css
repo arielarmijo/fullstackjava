@@ -2,4 +2,5 @@ main img {
     display: block;
     margin: 50px auto 100px;
     width: 1200px;
+    //background-image: url('sand.jpg');
 }

@@ -2,20 +2,29 @@
 <html>
 
   <head>
-    <title>Contacto</title>
+    <title style="font-family:Bilbo;">Contacto</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/principal.css">
     <link rel="stylesheet" href="css/formulario.css">
+    <link href='https://fonts.googleapis.com/css?family=Bubbler One' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Cinzel' rel='stylesheet'>
   </head>
   
   <body>
-
-    <header>
-      <h1>SPA Buenas Vacaciones</h1>
+    <style>
+        body {
+          background-image: url('images/velas.jpg');
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: cover;
+        }
+    </style>
+    <header >
+      <h1 style="font-family:Cinzel;">SPA Buenas Vacaciones</h1>
     </header>
 
-    <nav>
+    <nav style="font-family:Bubbler One;" >
       <a href="index.html">Inicio</a>
       <a href="servicios.html">Servicios</a>
       <a href="productos.html">Productos</a>
@@ -25,11 +34,14 @@
     </nav>
 
     <main>
+       <!-- <div style="background-image: url('images/sand.jpg');"> -->
+            
+           
+   
+      <h2 style="font-family:Bubbler One;" >Formulario de Contacto</h2>
 
-      <h2>Formulario de Contacto</h2>
-
-      <form action="procesamiento.html">
-
+      <form action="procesamiento.html" style="font-family:Bubbler One;">
+ 
         <div class="row">
           <label class="col-1" for="tfdNombre">Nombre:</label>
           <input class="col-2" type="text" id="tfdNombre" name="tfdNombre" title="Ingrese su primer nombre."/>
@@ -62,7 +74,7 @@
         
         <div class="row">
           <label class="col-1" for="profesion">Profesión:</label>
-          <select class="col-2" id="profesion" name="profesion">
+          <select class="col-2"  style="font-family:Bubbler One;" id="profesion" name="profesion">
               <option>Seleccione una profesión</option>
               <option>Ingeniero</option>
               <option>Arquitecto</option>
@@ -74,21 +86,24 @@
         
         <div class="row">
           <label class="col-1" for="tfdEmail">Email:</label>
-          <input class="col-2" type="email" id="tfdEmail" name="tfdEmail" title="Ingrese su email."/>
+          <input class="col-2" style="font-family:Bubbler One;" type="email" id="tfdEmail" name="tfdEmail" title="Ingrese su email."/>
         </div>
         
         <div class="row">
           <label id="txaMensajeId" class="col-1" for="txaMensaje">Mensaje:</label>
-          <textarea class="col-2" id="txaMensaje" name="txaMensaje" placeholder="Ingrese su mensaje."></textarea>
+          <textarea class="col-2" style="font-family:Bubbler One;" id="txaMensaje" name="txaMensaje" placeholder="Ingrese su mensaje."></textarea>
         </div>
         
         <div class="row buttons">
-          <input type="reset" value="Limpiar">
-          <input type="submit" value="Enviar">
+          <input style="font-family:Bubbler One;" type="reset" value="Limpiar">
+          <input style="font-family:Bubbler One;" type="submit" value="Enviar">
         </div>
 
       </form>
-
+      
+      
+      
+     <!-- </div> -->
     </main>
 
   </body>

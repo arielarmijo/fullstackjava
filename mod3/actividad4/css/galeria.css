@@ -9,7 +9,7 @@
 }
 
 .box {
-  border: 1px solid black;
+  border: 1px solid grey;
   box-shadow: 3px 3px 4px gray;
   margin: 25px 0px;
   overflow: hidden;
