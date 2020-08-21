@@ -1,0 +1,9 @@
+main h2 {
+    text-align: center;
+}
+
+main img {
+    display: block;
+    margin: 50px auto 100px;
+    width: 1200px;
+}

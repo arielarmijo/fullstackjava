@@ -1,8 +1,12 @@
+main h2 {
+  text-align: center;
+}
+
 main > div {
   border: 0px dotted black;
   margin: auto;
   width: 1050px;
-  overflow: auto;
+  
 }
 
 .div1 .div-image {
@@ -12,7 +16,19 @@ main > div {
   width: 300px;
   height: auto;
   float:left;
+  overflow: hidden;
 }
+
+.div-image img {
+  transition: transform .5s ease;
+}
+
+.div-image:hover img {
+  transform: scale(1.5);
+}
+
+
+
 
 .div2 {
   clear:left;
