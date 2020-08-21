@@ -1,3 +1,4 @@
+/*GALERÏA*/
 .galeria {
   border: 0px dotted blue;
   margin: auto;
@@ -5,7 +6,6 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  
 }
 
 .box {
@@ -26,14 +26,15 @@
   transform: scale(1.2);
 }
 
+/*LIGHTBOX*/
 .modal {
-  box-sizing: border-box;
   display: none;
 }
 
 .modal .imagen {
   display: flex;
   align-items: center;
+  height: 75%;
 } 
 
 .modal a, .modal h3 {
@@ -42,9 +43,19 @@
 
 .modal a {
   text-decoration: none;
-  font-size: 2em;
+  font-size: 3em;
   font-weight: bold;
-  margin: 0px 10px;
+}
+
+.modal > a {
+  width: 100%;
+  text-align: center;
+}
+
+.imagen > a:first-child, .imagen > a:last-child  {
+  height: 300px;
+  line-height: 300px;
+  margin: 0px 30px;
 }
 
 .modal:target {
@@ -52,10 +63,9 @@
   flex-flow: column;
   align-items: center;
   background-color:rgba(0,0,0,0.8);
-  position: absolute;
-  top: 222px;
+  position: fixed;
+  top: 0px;
   left: 0px;
   width: 100%;
   height: 100%;
-
 }
