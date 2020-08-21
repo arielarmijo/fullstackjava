@@ -1,44 +1,61 @@
-main > div {
-  border: 0px dotted black;
+.galeria {
+  border: 0px dotted blue;
   margin: auto;
-  width: 1050px;
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  
 }
 
-.div1 .div-image {
-  margin: 10px;
-  border: 5px solid blue;
-  padding: 10px;
-  width: 300px;
-  height: auto;
-  float:left;
+.box {
+  border: 1px solid black;
+  box-shadow: 3px 3px 4px gray;
+  margin: 25px 0px;
   overflow: hidden;
 }
 
-.div-image img {
+.box img {
+  width: 300px;
+  height: 300px;
+  cursor: pointer;
   transition: transform .5s ease;
 }
 
-.div-image:hover img {
-  transform: scale(1.5);
+.box img:hover {
+  transform: scale(1.2);
 }
 
-
-
-
-.div2 {
-  clear:left;
+.modal {
+  box-sizing: border-box;
+  display: none;
 }
 
-.div2 .div-image {
-  margin: 10px;
-  border: 5px solid blue;
-  padding: 10px;
-  width: 300px;
-  height: auto;
-  float:left;
+.modal .imagen {
+  display: flex;
+  align-items: center;
+} 
+
+.modal a, .modal h3 {
+  color: white;
 }
 
-img{
-  width: 300px;
-  height: 300px;
+.modal a {
+  text-decoration: none;
+  font-size: 2em;
+  font-weight: bold;
+  margin: 0px 10px;
+}
+
+.modal:target {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  background-color:rgba(0,0,0,0.8);
+  position: absolute;
+  top: 222px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+
 }
