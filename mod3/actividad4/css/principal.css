@@ -17,10 +17,8 @@ header > h1 {
 /*Nav*/
 nav {
   border: 0px dotted gray;
-  margin: auto;
-  width: 80%;
-  background-color: beige;
-  overflow: auto;
+  display: flex;
+  justify-content: center;
 }
 
 nav a {
@@ -31,7 +29,7 @@ nav a {
   font-weight: bold;
   margin: 0;
   padding: 5px 10px;
-  float: left;
+  background-color: beige;
 }
 
 nav .active {
@@ -47,8 +45,7 @@ main {
   border: 0px solid gray;
   margin: 0px auto;
   width: 90%;
-  overflow: hidden;
-  
+  overflow: hidden; 
 }
 
 main h2 {
@@ -56,15 +53,13 @@ main h2 {
   color: black;
   font-size: 2em;
   font-weight: bold;
-  
 }
 
 main h3 {
   text-align: center;
   color: white;
   font-size: 2em;
-  font-weight: bold;
-  
+  font-weight: bold; 
 }
 
 main h4 {
@@ -72,7 +67,4 @@ main h4 {
   color: white;
   font-size: 1.5em;
   font-weight: bold;
-  
-}
-  
-  
+} 

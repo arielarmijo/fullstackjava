@@ -2,5 +2,8 @@ main img {
     display: block;
     margin: 50px auto 100px;
     width: 1200px;
-    //background-image: url('sand.jpg');
+}
+
+main h2 {
+    text-shadow: 1px 1px 3px gray;
 }
