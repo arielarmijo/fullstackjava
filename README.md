@@ -1,4 +1,4 @@
-# javafullstack
+# fullstackjava
 
 Repositorio destinado a desarrollar actividades y evaluaciones del curso Desarrollo de Aplicaciones Full Stack Java Trainee del programa Talento Digital.
 
