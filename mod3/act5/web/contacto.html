@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title style="font-family:Bilbo;">Contacto</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body class="container">
+
+  <!--Navegación-->
+  <nav class="navbar navbar-expand-md navbar-dark bg-primary my-2">
+    <a class="navbar-brand" href="#">Buenas Vacaciones</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="rutas.html">Rutas</a>
+        </li>
+        <li class="nav-item  active">
+          <a class="nav-link" href="#">Contacto</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!--/.Navegación-->
+
+
+  <main>
+    <h2>Formulario de Contacto</h2>
+
+    <form action="procesamiento.html">
+
+      <div class="row my-2 form-inline justify-content-center">
+        <label class="col-2 justify-content-end" for="nombre">Nombre:</label>
+        <input class="form-control col-md-6" type="text" id="nombre" name="tfdNombre"
+          placeholder="Ingrese su primer nombre." />
+      </div>
+
+      <div class="row my-2 form-inline justify-content-center">
+        <label class="col-2 justify-content-end" for="tfdApellido">Apellido:</label>
+        <input class="form-control col-md-6" type="text" id="tfdApellido" name="tfdApellido"
+          placeholder="Ingrese su apellido paterno" />
+      </div>
+
+      <div class="row my-2 form-inline justify-content-center">
+        <label class="col-2 justify-content-end" for="tfdRut">Rut:</label>
+        <input class="form-control col-md-6" type="text" id="tfdRut" name="tfdRut" placeholder="Ingrese su rut." />
+      </div>
+
+      <div class="row my-2 form-inline justify-content-center">
+        <label class="col-2 justify-content-end" for="tfdDireccion">Dirección:</label>
+        <input class="form-control col-md-6" type="text" id="tfdDireccion" name="tfdDireccion"
+          placeholder="Ingrese su dirección." />
+      </div>
+
+      <div class="row my-2 form-inline justify-content-center">
+        <label class="col-2 justify-content-end">Género:</label>
+        <div class="col-md-6 d-flex">
+          <div class="form-check form-check-inline">
+            <input type="radio" name="genero" id="masculino" value="M">
+            <label class="form-check-label ml-1" for="masculino">Masculino</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input type="radio" name="genero" id="femenino" value="F">
+            <label class="form-check-label ml-1" for="femenino">Femenino</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="row my-2 form-inline justify-content-center">
+        <label class="col-2 justify-content-end" for="profesion">Profesión:</label>
+        <select class="form-control col-md-6" id="profesion" name="profesion">
+          <option>Seleccione una profesión</option>
+          <option>Ingeniero</option>
+          <option>Arquitecto</option>
+          <option>Ingeniero</option>
+          <option>Médico</option>
+          <option>Abogado</option>
+        </select>
+      </div>
+
+      <div class="row my-2 form-inline justify-content-center">
+        <label class="col-2 justify-content-end" for="tfdEmail">Email:</label>
+        <input class="form-control col-md-6" type="email" id="tfdEmail" name="tfdEmail"
+          placeholder="Ingrese su email." />
+      </div>
+
+      <div class="row my-2 form-inline justify-content-center">
+        <label class="col-2 justify-content-end align-self-start" id="mensaje" for="txaMensaje">Mensaje:</label>
+        <textarea class="form-control col-md-6" id="mensaje" name="txaMensaje"
+          placeholder="Ingrese su mensaje." rows="6"></textarea>
+      </div>
+
+      <div class="row my-2 form-inline justify-content-center">
+        <div class="col-2"></div>
+        <div class="col-md-6 d-flex justify-content-end p-3">
+          <input class="btn btn-primary mr-1" type="reset" value="Limpiar">
+          <input class="btn btn-primary" type="submit" value="Enviar">
+        </div>
+        
+      </div>
+
+    </form>
+
+  </main>
+
+  <footer class="my-2 py-1 small text-center text-light bg-primary">
+    <h6>Spa Buenas Vacaciones &copy;</h6>
+    <div class="pb-1"><i class="fa fa-address-card mr-2 "></i>Av. N°5 555</div>
+    <div class="pb-0"><i class="fa fa-phone mr-2"></i><span>+569 5555 5555</span></div>
+  </footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
