@@ -1,122 +1,117 @@
 <!DOCTYPE html>
 <html>
+  
   <head>
-    <title>Galería</title>
+    <title>Actividad 4</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/principal.css">
-    <link rel="stylesheet" href="css/galeria.css">
     <link href='https://fonts.googleapis.com/css?family=Bubbler One' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Cinzel' rel='stylesheet'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/galeria.css">
+    <style>
+      body {
+        background-image: url('images/spa-Inicio.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        color: white;
+      }
+      .jumbotron{
+        height: 100px;
+      }
+  </style>
+  
   </head>
-  <body>
+  
+  <body class="container">
 
-    <header>
-      <h1 style="font-family:Cinzel;">SPA Buenas Vacaciones</h1>
-    </header>
-
-    <nav style="font-family:Bubbler One;">
-      <a href="index.html">Inicio</a>
-      <a href="servicios.html">Servicios</a>
-      <a href="productos.html">Productos</a>
-      <a href="galeria.html" class="active">Galería</a>
-      <a href="contacto.html">Contacto</a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="servicios.html">Servicios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="productos.html">Productos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="galeria.html">Galería</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contacto.html">Contacto</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
     </nav>
 
-    <main>
-        <style>
-            body {
-              background-image: url('images/sand.jpg');
-              background-repeat: repeat;
-              
-            }
-        </style> 
-        <br/>
-      <h2 style="font-family:Bubbler One;">Galería de Imagenes</h2>
-             
-      <div id="galeria" class="galeria" >
-        <div class="box">
-          <a href="#img1"><img src="images/300x300/img-1.jpg" alt="Imagen 1"></a>
-        </div>
-        <div class="box">
-          <a href="#img2"><img src="images/300x300/img-2.jpg" alt="Imagen 2"></a>
-        </div>
-        <div class="box">
-          <a href="#img3"><img src="images/300x300/img-3.jpg" alt="Imagen 3"></a>
-        </div>
-        <div class="box">
-          <a href="#img4"><img src="images/300x300/img-4.jpg" alt="Imagen 4"></a>
-        </div>
-        <div class="box">
-          <a href="#img5"><img src="images/300x300/img-5.jpg" alt="Imagen 5"></a>
-        </div>
-        <div class="box">
-          <a href="#img6"><img src="images/300x300/img-6.jpg" alt="Imagen 6"></a>
-        </div>
 
-        <div class="modal" id="img1">
-          <h3>Imagen 1</h3>
-          <div class="imagen">
-            <a href="#img6">&lt;</a>
-            <a href="#img2"><img src="images/img-1.jpg"></a>
-            <a href="#img2">&gt</a>
-          </div>
-          <a class="cerrar" href="#galeria">x</a>
-        </div>
+    <br/>
 
-        <div class="modal" id="img2">
-          <h3>Imagen 2</h3>
-          <div class="imagen">
-            <a href="#img1">&lt;</a>
-            <a href="#img3"><img src="images/img-2.jpg"></a>
-            <a href="#img3">&gt</a>
+    <div class="row"> 
+      <div class="col-lg-5">
+        <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="images/300x300/img-1.jpg" class="d-block w-100" alt="...">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>First slide label</h5>
+                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="images/300x300/img-2.jpg" class="d-block w-100" alt="...">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Second slide label</h5>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="images/300x300/img-3.jpg" class="d-block w-100" alt="...">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Third slide label</h5>
+                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+              </div>
+            </div>
           </div>
-          <a class="cerrar" href="#galeria">x</a>
-        </div>
-
-        <div class="modal" id="img3">
-          <h3>Imagen 3</h3>
-          <div class="imagen">
-            <a href="#img2">&lt;</a>
-            <a href="#img4"><img src="images/img-3.jpg"></a>
-            <a href="#img4">&gt</a>
-          </div>
-          <a class="cerrar" href="#galeria">x</a>
-        </div>
-
-        <div class="modal" id="img4">
-          <h3>Imagen 4</h3>
-          <div class="imagen">
-            <a href="#img3">&lt;</a>
-            <a href="#img5"><img src="images/img-4.jpg"></a>
-            <a href="#img5">&gt</a>
-          </div>
-          <a class="cerrar" href="#galeria">x</a>
-        </div>
-
-        <div class="modal" id="img5">
-          <h3>Imagen 5</h3>
-          <div class="imagen">
-            <a href="#img4">&lt;</a>
-            <a href="#img6"><img src="images/img-5.jpg"></a>
-            <a href="#img6">&gt</a>
-          </div>
-          <a class="cerrar" href="#galeria">x</a>
-        </div>
-
-        <div class="modal" id="img6">
-          <h3>Imagen 6</h3>
-          <div class="imagen">
-            <a href="#img5">&lt;</a>
-            <a href="#img1"><img src="images/img-6.jpg"></a>
-            <a href="#img1">&gt</a>
-          </div>
-          <a class="cerrar" href="#galeria">x</a>
+          <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
         </div>
 
       </div>
+    </div>
 
-    </main>
+
+
+  
+
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
   </body>
 </html>
