@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <title>Actividad 3</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      
+      /*RESET*/
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        border: 0px dotted black;
+        padding: 0;
+      }
+      
+      /*BODY*/
+      body {
+        background-color: #e6fff2;
+      }
+      
+      /*TÍTULO*/
+      h1 {
+        margin: 20px;
+        text-align: center;
+      }
+
+      /*FILAS*/
+      .row {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin: 0px auto 5px;
+        width: 1200px;
+        height: 100px;
+        overflow: auto;
+      }
+      
+      .row:first-child {
+        border-top: 2px solid black;
+        border-bottom: 2px solid black;
+        height: auto;
+      }
+      
+      .row:nth-child(even) {
+        background-color: #D0DBF0;
+      }
+      
+      .row:nth-child(odd) {
+        background-color: #A1B8E1;
+      }
+      
+      .row:nth-last-child(2) {
+        margin-bottom: 20px;
+        border-bottom: 2px solid black;
+      }
+      
+      .row:last-child {
+        margin-bottom: 20px;
+        height: auto;
+        background-color: #e6fff2;
+        justify-content: flex-end;
+      }
+      
+      /*COLUMNAS*/
+      .col {
+        border: 0px dotted blue;
+        width: 16.66%;
+        height: auto;
+        text-align: center;
+        overflow: hidden;
+      }
+      
+      .header > .col {
+        padding: 15px 0px;
+        font-size: 1.2em;
+        font-weight: bold;
+      }
+      
+      .col > img {
+        padding: 0;
+        width: 100%;
+        height: 90px;
+      }
+      
+      /*BOTONES*/
+      .buttons {
+        display: inline-block;
+        float: right;
+        padding: 8px 20px;
+      }
+      
+      .btn {
+        padding: 5px 10px;
+        background-color: #A1B8E1;
+        border: 1px solid black;
+        border-radius: 5px;
+        font-weight: bold;
+        box-shadow: 2px 2px 2px grey;
+      }
+      
+      .btn:hover {
+        background-color: #D0DBF0;
+      }
+      
+      .btn:first-child {
+        margin-right: 10px;
+      }
+      
+      input {
+        cursor: pointer;
+      }
+         
+    </style>
+  </head>
+  
+  <body>
+    <h1>Buenas Vacaciones SPA</h1>
+    <form class="container" action="procesamiento.html">
+      <div class="row header">
+        <div class="col">Código</div>
+        <div class="col">Nombre</div>
+        <div class="col">Imágen</div>
+        <div class="col">Precio/Noche</div>
+        <div class="col">Noches</div>
+        <div class="col">Selección</div>
+      </div>
+      <div class="row">
+        <div class="col">1</div>
+        <div class="col">Astoreca</div>
+        <div class="col"><img src="images/astoreca.jpg"></div>
+        <div class="col ">$60.000</div>
+        <div class="col">
+          <input type="range" value="0" id="astoreca" oninput="astorecaOutput.value = astoreca.value"><br>
+          <output id="astorecaOutput">0</output><span> Noches</span>
+        </div>
+        <div class="col"><input type="radio" name="hotel"></div>
+      </div>
+      <div class="row">
+        <div class="col">2</div>
+        <div class="col">Patagonia</div>
+        <div class="col"><img src="images/eco-camp.jpg"></div>
+        <div class="col">$35.000</div>
+        <div class="col">
+          <input type="range" value="0" id="patagonia" oninput="patagoniaOutput.value = patagonia.value"><br>
+          <output id="patagoniaOutput">0</output><span> Noches</span>
+        </div>
+        <div class="col"><input type="radio" name="hotel"></div>
+      </div>
+      <div class="row">
+        <div class="col">3</div>
+        <div class="col">La Serena</div>
+        <div class="col"><img src="images/serena.jpg"></div>
+        <div class="col">$50.000</div>
+        <div class="col">
+          <input type="range" value="0" id="serena" oninput="serenaOutput.value = serena.value"><br>
+          <output id="serenaOutput">0</output><span> Noches</span>
+        </div>
+        <div class="col"><input type="radio" name="hotel"></div>
+      </div>
+      <div class="row">
+        <div class="col">4</div>
+        <div class="col">Nevados de Chillán</div>
+        <div class="col"><img src="images/chillan.jpg"></div>
+        <div class="col">$45.000</div>
+        <div class="col">
+          <input type="range" value="0" id="chillan" oninput="chillanOutput.value = chillan.value"><br>
+          <output id="chillanOutput">0</output><span> Noches</span>
+        </div>
+        <div class="col"><input type="radio" name="hotel"></div>
+      </div>
+      <div class="row">
+        <div class="buttons">
+        <input class="btn" type="reset" value="Limpiar">
+        <input class="btn" type="submit" value="Reservar">
+        </div>
+      </div>
+    </form>
+  </body>
+  
+</html>
