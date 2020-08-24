@@ -11,33 +11,34 @@
 
 </head>
 
-<body class="container">
+<body>
 
   <!--Navegación-->
-  <nav class="navbar navbar-expand-md navbar-dark bg-primary my-2">
-    <a class="navbar-brand" href="#">Buenas Vacaciones</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="index.html">Inicio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="rutas.html">Rutas</a>
-        </li>
-        <li class="nav-item  active">
-          <a class="nav-link" href="#">Contacto</a>
-        </li>
-      </ul>
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">Buenas Vacaciones</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item text-center">
+                    <a class="nav-link" href="index.html">Inicio</a>
+                </li>
+                <li class="nav-item text-center">
+                    <a class="nav-link" href="rutas.html">Rutas</a>
+                </li>
+                <li class="nav-item active text-center">
+                    <a class="nav-link" href="contacto.html">Contacto</a>
+                </li>
+            </ul>
+        </div>
     </div>
-  </nav>
-  <!--/.Navegación-->
-
+</nav>
+<!--/.Navegación-->
 
   <main>
-    <h2>Formulario de Contacto</h2>
+    <h2 class="py-3 text-center">Formulario de Contacto</h2>
 
     <form action="procesamiento.html">
 
@@ -115,11 +116,21 @@
 
   </main>
 
-  <footer class="my-2 py-1 small text-center text-light bg-primary">
-    <h6>Spa Buenas Vacaciones &copy;</h6>
-    <div class="pb-1"><i class="fa fa-address-card mr-2 "></i>Av. N°5 555</div>
-    <div class="pb-0"><i class="fa fa-phone mr-2"></i><span>+569 5555 5555</span></div>
-  </footer>
+  <footer class="text-light text-center bg-dark py-3">
+    <h6 class="py-2">Spa Buenas Vacaciones &copy;</h6>
+    <div class="mb-2">
+        <span class="fa fa-address-card mr-2 "></span>
+        <a href="https://goo.gl/maps/utkDHHmy3DEa2jZJ8" target="_blank">Av. Miguel Claro 2026 of. 303. Providencia,
+            Santiago</a>
+    </div>
+    <div class="mb-2">
+        <span class="fa fa-envelope mr-2"></span>
+        <a href="mailto:buenasvacaciones@spa.com">buenasvacaciones@spa.com</a>
+    </div>
+    <div class="mb-2">
+        <span class="fa fa-phone mr-2"></span><a href="tel:+56955555555">+569 5555 5555</a>
+    </div>
+</footer>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>

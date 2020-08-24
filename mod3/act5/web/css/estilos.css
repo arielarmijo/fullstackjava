@@ -1,7 +1,9 @@
 .carousel-caption > h5, .carousel-caption > p {
     text-shadow: 2px 2px 3px black;
+    
 }
 
-* {
-    border: 0px solid black;
+#carouselFotos {
+    box-shadow: 1px 1px 50px gray;
+    border: 1px solid gray;
 }

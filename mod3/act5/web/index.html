@@ -2,100 +2,115 @@
 <html lang="es">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Actividad 5</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/estilos.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 5</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<body class="container">
+<body>
 
-  <!--Navegación-->
-  <nav class="navbar navbar-expand-md navbar-dark bg-primary my-2">
-    <a class="navbar-brand" href="#">Buenas Vacaciones</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Inicio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="rutas.html">Rutas</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="contacto.html">Contacto</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  <!--/.Navegación-->
-
-  <main>
-
-    <!--Carousel Fotos-->
-    <div class="row justify-content-center">
-      <div id="carouselFotos" class="carousel slide col-lg-11" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselFotos" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselFotos" data-slide-to="1"></li>
-          <li data-target="#carouselFotos" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="img/cuernos.jpg" class="img-fluid d-block w-100" alt="Cuernos del Paine">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Sector Los Cuernos</h5>
-              <p class="small">Lleva su nombre por encontrarse a los pies del macizo Cuernos y es considerado por ser
-                el lugar más
-                acogedor de todo el circuito.</p>
+    <!--Navegación-->
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">SPA Buenas Vacaciones</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active text-center">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item text-center">
+                        <a class="nav-link" href="rutas.html">Rutas</a>
+                    </li>
+                    <li class="nav-item text-center">
+                        <a class="nav-link" href="contacto.html">Contacto</a>
+                    </li>
+                </ul>
             </div>
-          </div>
-          <div class="carousel-item">
-            <img src="img/glaciar_grey.jpg" class="img-fluid  d-block w-100" alt="Glaciar Grey">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Glaciar Grey</h5>
-              <p class="small">El Glaciar Grey está localizado dentro del Parque Nacional Torres del Paine y forma
-                parte de los
-                Campos de Hielo Sur</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="img/mirador_base.jpg" class="img-fluid  d-block w-100" alt="Campamento Base">
-            <div class="carousel-caption d-none d-md-block">
-              <h5 class="">Mirador Base</h5>
-              <p class="small">Mirador Base es el punto más cercano para apreciar estas montañas que son el punto
-                turístico
-                más importante del Parque Nacional Torres del Paine.</p>
-            </div>
-          </div>
         </div>
-        <a class="carousel-control-prev" href="#carouselFotos" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselFotos" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-    </div>
-    <!--/.Carousel Fotos-->
+    </nav>
+    <!--/.Navegación-->
 
-  </main>
+    <main class="container-fluid p-0">
+        <div class="jumbotron">
+            <!--Carousel Fotos-->
 
-  <footer class="my-2 py-1 small text-center text-light bg-primary">
-    <h6>Spa Buenas Vacaciones &copy;</h6>
-    <div class="pb-1"><i class="fa fa-address-card mr-2 "></i>Av. N°5 555</div>
-    <div class="pb-0"><i class="fa fa-phone mr-2"></i><span>+569 5555 5555</span></div>
-  </footer>
+                <div id="carouselFotos" class="carousel slide col-lg-12 p-0" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselFotos" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselFotos" data-slide-to="1"></li>
+                        <li data-target="#carouselFotos" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="img/cuernos.jpg" class="img-fluid d-block w-100" alt="Cuernos del Paine">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Sector Los Cuernos</h5>
+                                <p class="small">Lleva su nombre por encontrarse a los pies del macizo Cuernos y es
+                                    considerado por ser
+                                    el lugar más
+                                    acogedor de todo el circuito.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/glaciar_grey.jpg" class="img-fluid  d-block w-100" alt="Glaciar Grey">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Glaciar Grey</h5>
+                                <p class="small">El Glaciar Grey está localizado dentro del Parque Nacional Torres del
+                                    Paine y forma
+                                    parte de los
+                                    Campos de Hielo Sur</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/mirador_base.jpg" class="img-fluid  d-block w-100" alt="Campamento Base">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5 class="">Mirador Base</h5>
+                                <p class="small">Mirador Base es el punto más cercano para apreciar estas montañas que
+                                    son el punto
+                                    turístico
+                                    más importante del Parque Nacional Torres del Paine.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselFotos" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselFotos" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+            <!--/.Carousel Fotos-->
+        </div>
+    </main>
+
+    <footer class="text-light text-center bg-dark py-3">
+        <h6 class="py-2">Spa Buenas Vacaciones &copy;</h6>
+        <div class="mb-2">
+            <span class="fa fa-address-card mr-2 "></span>
+            <a href="https://goo.gl/maps/utkDHHmy3DEa2jZJ8" target="_blank">Av. Miguel Claro 2026 of. 303. Providencia,
+                Santiago</a>
+        </div>
+        <div class="mb-2">
+            <span class="fa fa-envelope mr-2"></span>
+            <a href="mailto:buenasvacaciones@spa.com">buenasvacaciones@spa.com</a>
+        </div>
+        <div class="mb-2">
+            <span class="fa fa-phone mr-2"></span><a href="tel:+56955555555">+569 5555 5555</a>
+        </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
 
