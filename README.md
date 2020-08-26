@@ -7,3 +7,4 @@ Construir una págna web responsiva básica utilizando HTML, CSS y JavaScript ac
 - [Actividad 3](https://cochayuyo.github.io/fullstackjava/mod3/act3/web/index.html): SPA Buenas Vacaciones (formulario).
 - [Actividad 4](https://cochayuyo.github.io/fullstackjava/mod3/act4/web/index.html): SPA Buenas Vacaciones (sin bootstrap).
 - [Actividad 5](https://cochayuyo.github.io/fullstackjava/mod3/act5/web/index.html): SPA Buenas Vacaciones (con bootstrap).
+- [Actividad 7](https://cochayuyo.github.io/fullstackjava/mod3/act7/web/index.html): Minimarket deToDo.
