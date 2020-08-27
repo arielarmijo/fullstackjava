@@ -1,3 +1,11 @@
+body {
+    min-width: 420px;
+}
+
+.carousel-indicators li {
+    background-color: yellow;
+}
+
 .categoria {
     height: 250px;
     width: 100%;
@@ -39,16 +47,24 @@
 }
 
 .row img {
-    margin-bottom: 15px;
+    display: block;
+    margin: 0px auto 15px;
     width: 100%;
     height: auto;
-    transition: transform 1s ease;
+    transition: transform .5s ease;
 }
 
 .row img:hover {
-    transform: rotateY(180deg);
+    transform: scale(1.1);
 }
 
 .row * {
     border: 0px solid black;
+}
+
+@media (max-width: 768px) {
+    .row img, .categoria {
+        width: 75%;
+        margin: 0px auto 15px;
+    }
 }

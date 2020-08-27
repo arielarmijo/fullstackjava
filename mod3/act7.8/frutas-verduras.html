@@ -11,44 +11,34 @@
 
 <body>
 
-    <div class="container">
-        
+    <div class="container-fluid">
+
         <!--Navegación-->
         <nav class="navbar navbar-expand-sm navbar-light bg-light border shadow mb-3 ">
-            <a class="navbar-brand" href="index.html"><img src="img/logo.png" width="60" height="60">
+            <a href="index.html" class="navbar-brand"><img src="img/logo.png" width="60" height="60">
                 <h1 class="navbar-text small">Minimarket deToDo</h1>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div id="navbarContent" class="collapse navbar-collapse justify-content-end">
-                <a class="nav-link text-center active" href="index.html">Tiendas</a>
-                <a class="nav-link text-center" href="galeria.html">Productos</a>
+                <div class="navbar-nav">
+                    <a href="index.html" class="nav-link text-center">Tiendas</a>
+                    <a href="productos.html" class="nav-link text-center active">Productos</a>
+                </div>
             </div>
         </nav>
         <!--/.Navegación-->
 
         <!--Galería-->
-        <main>
-
+        <main class="container">
+            <h2 class="text-center">Frutas y Verduras</h2>
             <div class="row">
-                <div class="col-sm-6 col-md-4">
-                    <a href="frutas-verduras.html">
-                        <div id="frutas-verduras" class="categoria"><span>Frutas y Verduras</span></div>
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <a href="pastas-arroz.html">
-                        <div id="pastas-arroz" class="categoria"><span>Pastas y Arroz</span></div>
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <a href="ofertas.html">
-                        <div id="ofertas" class="categoria"><span>Ofertas</span></div>
-                    </a>
-                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3"><img src="img/categorias/frutas-verduras/limon.webp"></div>
+                <div class="col-sm-6 col-md-4 col-lg-3"><img src="img/categorias/frutas-verduras/mandarina.webp"></div>
+                <div class="col-sm-6 col-md-4 col-lg-3"><img src="img/categorias/frutas-verduras/pera.webp"></div>
+                <div class="col-sm-6 col-md-4 col-lg-3"><img src="img/categorias/frutas-verduras/platano.webp"></div>
             </div>
-
         </main>
         <!--/Galería-->
 

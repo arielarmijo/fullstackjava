@@ -1,0 +1,20 @@
+.jumbotron {
+    height: 50vw;
+    background-image: url("../img/spa.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    border-radius: 0;
+}
+
+.row img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+    border: 1px solid lightgray;
+    box-shadow: 0px 0px 10px gray;
+}
+
+.row img:hover {
+    border: 2px solid lightblue;
+}
