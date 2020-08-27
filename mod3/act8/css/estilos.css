@@ -68,3 +68,9 @@ body {
         margin: 0px auto 15px;
     }
 }
+
+@media (min-width: 992px) {
+    .tab-content .tab-pane {
+        height: 485px;
+    }
+}
