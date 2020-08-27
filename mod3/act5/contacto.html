@@ -16,121 +16,136 @@
   <!--Navegación-->
   <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="index.html">Buenas Vacaciones</a>
-        <button id="navbarToggle" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsableNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="collapsableNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item text-center">
-                    <a class="nav-link" href="index.html">Inicio</a>
-                </li>
-                <li class="nav-item text-center">
-                    <a class="nav-link" href="rutas.html">Rutas</a>
-                </li>
-                <li class="nav-item active text-center">
-                    <a class="nav-link" href="contacto.html">Contacto</a>
-                </li>
-            </ul>
-        </div>
+      <a class="navbar-brand" href="index.html">Buenas Vacaciones</a>
+      <button id="navbarToggle" class="navbar-toggler" type="button" data-toggle="collapse"
+        data-target="#collapsableNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="collapsableNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item text-center">
+            <a class="nav-link" href="index.html">Inicio</a>
+          </li>
+          <li class="nav-item text-center">
+            <a class="nav-link" href="rutas.html">Rutas</a>
+          </li>
+          <li class="nav-item active text-center">
+            <a class="nav-link" href="contacto.html">Contacto</a>
+          </li>
+        </ul>
+      </div>
     </div>
-</nav>
-<!--/.Navegación-->
+  </nav>
+  <!--/.Navegación-->
 
   <main>
+
     <h2 class="py-3 text-center">Formulario de Contacto</h2>
 
-    <form action="procesamiento.html">
+    <div class="container">
 
-      <div class="row my-2 form-inline justify-content-center">
-        <label class="col-2 justify-content-end" for="nombre">Nombre:</label>
-        <input class="form-control col-md-6" type="text" id="nombre" name="tfdNombre"
-          placeholder="Ingrese su primer nombre." />
-      </div>
+      <form action="procesamiento.html">
 
-      <div class="row my-2 form-inline justify-content-center">
-        <label class="col-2 justify-content-end" for="tfdApellido">Apellido:</label>
-        <input class="form-control col-md-6" type="text" id="tfdApellido" name="tfdApellido"
-          placeholder="Ingrese su apellido paterno" />
-      </div>
-
-      <div class="row my-2 form-inline justify-content-center">
-        <label class="col-2 justify-content-end" for="tfdRut">Rut:</label>
-        <input class="form-control col-md-6" type="text" id="tfdRut" name="tfdRut" placeholder="Ingrese su rut." />
-      </div>
-
-      <div class="row my-2 form-inline justify-content-center">
-        <label class="col-2 justify-content-end" for="tfdDireccion">Dirección:</label>
-        <input class="form-control col-md-6" type="text" id="tfdDireccion" name="tfdDireccion"
-          placeholder="Ingrese su dirección." />
-      </div>
-
-      <div class="row my-2 form-inline justify-content-center">
-        <label class="col-2 justify-content-end">Género:</label>
-        <div class="col-md-6 d-flex">
-          <div class="form-check form-check-inline">
-            <input type="radio" name="genero" id="masculino" value="M">
-            <label class="form-check-label ml-1" for="masculino">Masculino</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input type="radio" name="genero" id="femenino" value="F">
-            <label class="form-check-label ml-1" for="femenino">Femenino</label>
+        <div class="form-group form-row">
+          <label class="col-sm-2 col-form-label" for="nombre">Nombre:</label>
+          <div class="col-sm-10">
+            <input type="text" id="nombre" class="form-control" placeholder="Ingrese su primer nombre.">
           </div>
         </div>
-      </div>
 
-      <div class="row my-2 form-inline justify-content-center">
-        <label class="col-2 justify-content-end" for="profesion">Profesión:</label>
-        <select class="form-control col-md-6" id="profesion" name="profesion">
-          <option>Seleccione una profesión</option>
-          <option>Ingeniero</option>
-          <option>Arquitecto</option>
-          <option>Ingeniero</option>
-          <option>Médico</option>
-          <option>Abogado</option>
-        </select>
-      </div>
-
-      <div class="row my-2 form-inline justify-content-center">
-        <label class="col-2 justify-content-end" for="tfdEmail">Email:</label>
-        <input class="form-control col-md-6" type="email" id="tfdEmail" name="tfdEmail"
-          placeholder="Ingrese su email." />
-      </div>
-
-      <div class="row my-2 form-inline justify-content-center">
-        <label class="col-2 justify-content-end align-self-start" id="mensaje" for="txaMensaje">Mensaje:</label>
-        <textarea class="form-control col-md-6" id="mensaje" name="txaMensaje"
-          placeholder="Ingrese su mensaje." rows="6"></textarea>
-      </div>
-
-      <div class="row my-2 form-inline justify-content-center">
-        <div class="col-2"></div>
-        <div class="col-md-6 d-flex justify-content-end p-3">
-          <input class="btn btn-primary mr-1" type="reset" value="Limpiar">
-          <input class="btn btn-primary" type="submit" value="Enviar">
+        <div class="form-group form-row">
+          <label class="col-sm-2 col-form-label" for="apellido">Apellido:</label>
+          <div class="col-sm-10">
+            <input type="text" id="apellido" class="form-control" placeholder="Ingrese su apellido paterno.">
+          </div>
         </div>
-        
-      </div>
+
+        <div class="form-group form-row">
+          <label class="col-sm-2 col-form-label" for="rut">Rut:</label>
+          <div class="col-sm-10">
+            <input type="text" id="rut" class="form-control" placeholder="Ingrese su rut.">
+          </div>
+        </div>
+
+        <div class="form-group form-row">
+          <label class="col-sm-2 col-form-label" for="direccion">Dirección:</label>
+          <div class="col-sm-10">
+            <input type="text" id="direccion" class="form-control" placeholder="Ingrese su dirección.">
+          </div>
+        </div>
+
+        <fieldset class="form-group">
+          <div class="row">
+            <legend class="col-form-label col-sm-2 pt-0">Género:</legend>
+            <div class="col-sm-10">
+              <div class="form-check">
+                <input type="radio" id="masculino" class="form-check-input" name="generoRdb" value="M">
+                <label class="form-check-label" for="masculino">Masculino</label>
+              </div>
+              <div class="form-check">
+                <input type="radio" id="femenino" class="form-check-input" name="generoRdb" value="F">
+                <label class="form-check-label" for="femenino">Femenino</label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="form-group form-row">
+          <label class="col-sm-2 col-form-label" for="profesion">Profesión:</label>
+          <div class="col-sm-10">
+            <select id="profesion" class="form-control">
+              <option>Seleccione una profesión</option>
+              <option>Ingeniero</option>
+              <option>Arquitecto</option>
+              <option>Médico</option>
+              <option>Abogado</option>
+              <option>Otro</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group form-row">
+          <label class="col-sm-2 col-form-label" for="email">Email:</label>
+          <div class="col-sm-10">
+            <input type="email" id="email" class="form-control" placeholder="Ingrese su email." required>
+          </div>
+        </div>
+
+        <div class="form-group form-row">
+          <label class="col-sm-2 col-form-label" for="mensaje">Mensaje:</label>
+          <div class="col-sm-10">
+            <textarea id="mensaje" class="form-control" placeholder="Ingrese su mensaje." rows="6" required></textarea>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-end m-3">
+            <input class="btn btn-primary mr-2" type="reset" value="Limpiar">
+            <input class="btn btn-primary" type="submit" value="Enviar">
+        </div>
+
+    </div>
 
     </form>
+
+    </div>
 
   </main>
 
   <footer class="text-light text-center bg-dark py-3">
     <h6 class="py-2">Spa Buenas Vacaciones &copy;</h6>
     <div class="mb-2">
-        <span class="fa fa-address-card mr-2 "></span>
-        <a href="https://goo.gl/maps/utkDHHmy3DEa2jZJ8" target="_blank">Av. Miguel Claro 2026 of. 303. Providencia,
-            Santiago</a>
+      <span class="fa fa-address-card mr-2 "></span>
+      <a href="https://goo.gl/maps/utkDHHmy3DEa2jZJ8" target="_blank">Av. Miguel Claro 2026 of. 303. Providencia,
+        Santiago</a>
     </div>
     <div class="mb-2">
-        <span class="fa fa-envelope mr-2"></span>
-        <a href="mailto:buenasvacaciones@spa.com">buenasvacaciones@spa.com</a>
+      <span class="fa fa-envelope mr-2"></span>
+      <a href="mailto:buenasvacaciones@spa.com">buenasvacaciones@spa.com</a>
     </div>
     <div class="mb-2">
-        <span class="fa fa-phone mr-2"></span><a href="tel:+56955555555">+569 5555 5555</a>
+      <span class="fa fa-phone mr-2"></span><a href="tel:+56955555555">+569 5555 5555</a>
     </div>
-</footer>
+  </footer>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
