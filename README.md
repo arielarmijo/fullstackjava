@@ -12,4 +12,4 @@ Construir una págna web responsiva básica utilizando HTML, CSS y JavaScript ac
 - [Actividad 6](https://cochayuyo.github.io/fullstackjava/mod3/act6/): SPA Buenas Vacaciones, galería de imágenes.
 - [Actividad 7](https://cochayuyo.github.io/fullstackjava/mod3/act7/): Minimarket deToDo.
 - [Actividad 8](https://cochayuyo.github.io/fullstackjava/mod3/act8/): Minimarket deToDo (responsivo).
-- [Evaluación 1](https://cochayuyo.github.io/fullstackjava/mod3/eval1/index.html): Lavado de Autos Los Erens.
+- [Evaluación 1](https://cochayuyo.github.io/fullstackjava/mod3/eval1/): Lavado de Autos Los Erens.
