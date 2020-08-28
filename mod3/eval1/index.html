@@ -1,0 +1,262 @@
+<!-- 
+Evaluación 1 Módulo 3
+Integrantes:
+  - Macarena Bolados
+  - Juan Zamorano
+  - Edgar Haro
+  - Ariel Armijo
+-->
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Los Eren</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Carrois Gothic SC">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+  <!--Logo y marca de la tienda-->
+  <nav class="transparente navbar navbar-light bg-dark">
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+      <img src="autologo.png" class="rounded mr-3" width="90" height="60">
+      <h1 id="titulo" class="navbar-text text-wrap m-0 p-0">Lavado de Autos Los Eren</h1>
+    </a>
+  </nav>
+
+  <!--Formulario-->
+  <div class="container my-5">
+    <form action="result.html">
+      <!--Pestañas de navegación-->
+      <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <a class="nav-link active" id="nav-home-tab" data-toggle="tab" href="#cliente" role="tab">Datos Cliente</a>
+          <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#vehiculo" role="tab">Datos Vehículo</a>
+          <a class="nav-link" id="nav-contact-tab" data-toggle="tab" href="#servicio" role="tab">Tipo Servicio</a>
+        </div>
+      </nav>
+      <!--Contenido-->
+      <div id="tab-content" class="container">
+        <div class="tab-content container" id="nav-tabContent">
+ 
+          <!--Datos Cliente-->
+          <div id="cliente" class="tab-pane fade show active" role="tabpanel">
+            <div class="container">
+              <h2 class="p-3">Datos Cliente</h2>
+              <!--Rut-->
+              <div class="form-group form-row">
+                <label class="col-sm-2 col-form-label" for="rut">Rut:</label>
+                <div style="padding:0px 5px; width:180px;">
+                  <input type="text" id="rut" name="rut" class="form-control" placeholder="Ingrese su rut." required>
+                </div>
+                <label class="col-form-label text-center" for="dv">-</label>
+                <div style="width:45px;">
+                  <input type="text" id="dv" name="dv" class="form-control" required>
+                </div>
+              </div>
+              <!--Nombre-->
+              <div class="form-group form-row">
+                <label class="col-sm-2 col-form-label" for="nombre">Nombre:</label>
+                <div class="col-sm-10">
+                  <input type="text" id="nombre" name="nombre" class="form-control"
+                    placeholder="Ingrese su primer nombre." required>
+                </div>
+              </div>
+              <!--Apellido-->
+              <div class="form-group form-row">
+                <label class="col-sm-2 col-form-label" for="apellido">Apellido:</label>
+                <div class="col-sm-10">
+                  <input type="text" id="apellido" name="apellido" class="form-control"
+                    placeholder="Ingrese su apellido paterno." required>
+                </div>
+              </div>
+              <!--Fecha nacimiento-->
+              <div class="form-group form-row">
+                <label class="col-sm-2 col-form-label" for="fNac">Fecha Nacimiento:</label>
+                <div class="col-sm-10">
+                  <input type="date" id="fNac" name="fNac" class="form-control" placeholder="Ingrese Fecha Nacimiento."
+                    required>
+                </div>
+              </div>
+              <!--Dirección-->
+              <div class="form-group form-row">
+                <label class="col-sm-2 col-form-label" for="direccion">Dirección:</label>
+                <div class="col-sm-10">
+                  <input type="text" id="direccion" name="direccion" class="form-control"
+                    placeholder="Ingrese su dirección." required>
+                </div>
+              </div>
+              <!--Comuna-->
+              <div class="form-group form-row">
+                <label class="col-sm-2 col-form-label" for="comuna">Comuna:</label>
+                <div class="col-sm-10">
+                  <select id="comuna" class="form-control" name="comuna" required>
+                    <option>Seleccione una Comuna</option>
+                    <option>Estacion Central</option>
+                    <option>Independencia</option>
+                    <option>Ñuñoa</option>
+                    <option>Providencia</option>
+                    <option>Santiago</option>
+                    <option>Otro</option>
+                  </select>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!--Datos Vehículo-->
+          <div id="vehiculo" class="tab-pane fade" role="tabpanel">
+            <div class="container">
+              <h2 class="p-3">Datos del Vehículo</h2>
+              <!--Tipo de vehículo-->
+              <div class="form-group form-row">
+                <label class="col-sm-2 col-form-label" for="tipoVehiculo">Tipo Vehículo:</label>
+                <div class="col-sm-10">
+                  <select id="tipoVehiculo" class="form-control" name="tipoVehiculo" required>
+                    <option>Seleccione tipo de vehículo</option>
+                    <option>Automovil</option>
+                    <option>Camión</option>
+                    <option>Camioneta</option>
+                    <option>Furgón</option>
+                    <option>Moto</option>
+                  </select>
+                </div>
+              </div>
+              <!--Marca-->
+              <div class="form-group form-row">
+                <label class="col-sm-2 col-form-label" for="marcaVehiculo">Marca:</label>
+                <div class="col-sm-10">
+                  <input type="text" id="marcaVehiculo" class="form-control" name="marcaVehiculo"
+                    placeholder="Ingrese la marca del vehículo." required>
+                </div>
+              </div>
+              <!--Modelo-->
+              <div class="form-group form-row">
+                <label class="col-sm-2 col-form-label" for="modeloVehiculo">Modelo:</label>
+                <div class="col-sm-10">
+                  <input type="text" id="modeloVehiculo" class="form-control" name="modeloVehiculo"
+                    placeholder="Ingrese el modelo del vehículo." required>
+                </div>
+              </div>
+              <!--Año-->
+              <div class="form-group form-row">
+                <label class="col-sm-2 col-form-label" for="anioVehiculo">Año:</label>
+                <div class="col-sm-10">
+                  <input type="text" id="anioVehiculo" class="form-control" name="anioVehiculo"
+                    placeholder="Ingrese el año del vehículo." required>
+                </div>
+              </div>
+              <!--Revisión técnica al día-->
+              <fieldset class="form-group">
+                <div class="row">
+                  <legend class="col-form-label col-sm-2 pt-0">Revisión Técnica:</legend>
+                  <div class="col-sm-10">
+                    <div class="form-check">
+                      <input type="radio" id="revTecOk" class="form-check-input" name="revisionTecnica" value="T">
+                      <label class="form-check-label" for="revTecOk">Al día</label>
+                    </div>
+                    <div class="form-check">
+                      <input type="radio" id="revTecNoOk" class="form-check-input" name="revisionTecnica" value="F"
+                        checked>
+                      <label class="form-check-label" for="revTecNoOk">Pendiente</label>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+
+          <!--Servicio-->
+          <div id="servicio" class="tab-pane fade" role="tabpanel">
+            <div class="container">
+              <h2 class="p-3">Tipos de Servicios</h2>
+              <div class="row">
+                <!--Primera columna-->
+                <div class="col-md-6 mb-2 mt-5">
+                  <!--Tipo servicio-->
+                  <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="customCheck1" name="servicio">
+                    <label class="custom-control-label" for="customCheck1">Lavado Exterior $5.000</label>
+                  </div>
+                  <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="customCheck2" name="servicio">
+                    <label class="custom-control-label" for="customCheck2">Lavado de Motor $8.000</label>
+                  </div>
+                </div>
+                <!--Segunda columna-->
+                <div class="form-group  col-md-6">
+
+
+
+                  <!--Primera fila segunda columna-->
+                  <div class="form-row form-group">
+
+                    <!--Fecha servicio-->
+                    <label class="col-form-label" for="fNac">Fecha Servicio:</label>
+
+                    <div class="col-sm-12">
+                      <input type="datetime-local" id="fServ" name="fServ" class="form-control"
+                        placeholder="Ingrese Fecha Servicio." required>
+                    </div>
+
+                    <!--Encargado servicio-->
+                    <label class="pt-3" for="exampleFormControlSelect1">Encargado:</label>
+                    <div class="col-sm-12">
+                      <select class="form-control" id="exampleFormControlSelect1" name="prestador" required>
+                        <option>Seleccione encargado</option>
+                        <option>Ariel Armijo</option>
+                        <option value="Macarena">Macarena Bolados</option>
+                        <option>Edgar Haro</option>
+                        <option>Juan Zamorano</option>
+                      </select>
+                    </div>
+
+                  </div>
+                  <!--Fin Primera fila segunda columna-->
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--Botones-->
+        <div id="botones" class="d-flex justify-content-center py-3">
+          <input class="btn btn-primary mr-3" type="reset" value="Limpiar">
+          <input class="btn btn-primary" type="submit" value="Enviar">
+        </div>
+
+      </div>
+    </form>
+  </div>
+
+
+  <footer class="transparente text-light text-center fixed-botton bg-dark py-1">
+    <h6 class="py-2">Los Eren&copy;</h6>
+    <div class="mb-1">
+      <span class="fa fa-address-card mr-2 "></span>
+      <a href="https://goo.gl/maps/utkDHHmy3DEa2jZJ8" target="_blank">Av. Miguel Claro 2026 of. 303. Providencia,
+        Santiago</a>
+    </div>
+    <div class="mb-1">
+      <span class="fa fa-envelope mr-2"></span>
+      <a href="mailto:buenasvacaciones@spa.com">LosEren@spa.com</a>
+
+      <span class="fa fa-phone mr-2 ml-3"></span><a href="tel:+56955555555">+569 5555 5555</a>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
