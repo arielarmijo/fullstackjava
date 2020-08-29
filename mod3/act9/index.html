@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Actividad 9</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+/*         (function () {
+            'use strict';
+            window.addEventListener('load', function () {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })(); */
+
+        // Limpia mensajes de validación
+        function limpiarMensajes() {
+            var element = document.getElementById("registro");
+            element.classList.remove("was-validated");
+        }
+
+        // Comprueba que los passwords coincidan
+        function validarPassword() {
+            var pwd1 = document.getElementById('password1').value;
+            var pwd2 = document.getElementById('password2').value;
+            console.log(pwd1, pwd2);
+            if (pwd1 != pwd2) {
+                document.getElementById("errorConfirmacion").innerHTML = "<span style='color: red;'>Las contraseñas no coinciden</span>"
+            } else {
+                document.getElementById("errorConfirmacion").innerHTML = "<span style='color: green;'>Las contraseñas sí coinciden</span>"
+                document.getElementById("btnEnviar").removeAttribute("disabled");
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="my-4 text-center">Formulario de Registro</h1>
+        <div class="row justify-content-center">
+            <form action="#" id="registro" class="p-3 w-50 border-dark shadow-lg needs-validation" novalidate>
+                <!--Nombre-->
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Ingrese su nombre"
+                        required>
+                    <div class="valid-feedback">Looks good!</div>
+                    <div class="invalid-feedback">Looks BAD!</div>
+                </div>
+                <!--Email-->
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="exampleInputEmail1" name="email" class="form-control"
+                        placeholder="Ingrese su correo eléctronico" required>
+                    <small id="emailHelp" class="form-text text-muted">Nunca compartiremos su dirección de
+                        correo.</small>
+                    <div class="valid-feedback">Looks good!</div>
+                    <div class="invalid-feedback">Looks BAD!</div>
+                </div>
+                <!--Password-->
+                <div class="form-group">
+                    <label for="password1">Password</label>
+                    <input type="password" id="password1" name="password1" class="form-control"
+                        placeholder="Ingrese su contraseña súper segura" onkeyup="validarPassword();" required>
+                    <div class="valid-feedback">Looks good!</div>
+                    <div class="invalid-feedback">Looks BAD!</div>
+                </div>
+                <!--Confirmación password-->
+                <div class="form-group">
+                    <label for="password2">Confirmar Password</label>
+                    <input type="password" id="password2" name="password2" class="form-control"
+                        placeholder="Vuelva a ingresar su contraseña súper segura" onkeyup="validarPassword();" required>
+                    <div class="valid-feedback">Looks good!</div>
+                    <div class="invalid-feedback">Looks BAD!</div>
+                </div>
+                <!--Condiciones de servicio-->
+                <div class="form-group form-check">
+                    <input type="checkbox" id="acuerdo" class="form-check-input" required>
+                    <label class="form-check-label" for="acuerdo">Acepto las condiciones</label>
+                    <div class="valid-feedback">Looks good!</div>
+                    <div class="invalid-feedback">Looks BAD!</div>
+                </div>
+                <!--Botones-->
+                <div class="row justify-content-center">
+                    <button type="reset" class="btn btn-primary mr-2" onclick="limpiarMensajes();">Limpiar</button>
+                    <button type="submit" id="btnEnviar" class="btn btn-primary" onclick="validarPassword();" disabled>Enviar</button>
+                </div>
+                <div id="errorConfirmacion"></div>
+            </form>
+            
+        </div>
+    </div>
+
+    
+
+</body>
+
+</html>
