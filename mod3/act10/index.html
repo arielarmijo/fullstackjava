@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Actividad 10</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<style>
+    body {
+        background-color: lightgray;
+    }
+</style>
+
+<body>
+
+    <nav class="navbar shadow">
+        <!--Logo y nombre tienda-->
+        <a href="index.html" class="navbar-brand d-flex justify-content-center align-items-center w-100">
+          <img src="img/logo.png" class="rounded mx-3 d-none d-sm-block" width="120" height="120">
+          <div class="d-flex flex-column align-items-center">
+              <h1 id="titulo" class="text-wrap text-center">Billete Seguro</h1>
+              <small class="d-block">Casa de Cambio</small>
+          </div>
+        </a>
+      </nav>
+
+  <main>
+        <div class="container my-5 px-0">
+            <fieldset class="pt-3 pb-4 px-2 border-lg shadow">
+
+                <legend class="text-dark">Cálculo de divisas</legend>
+    
+                <div class="form-row">
+                    <!--FROM-->
+                    <div class="col-lg-6 pb-2 d-flex">
+                        <select id="divisaFrom" name="divisaFrom" class="form-control d-inline-block w-auto">
+                            <option value="usd">USD</option>
+                            <option value="eur">EUR</option>
+                            <option value="clp">CLP</option>
+                        </select>
+                        <div class="input-group mx-2 d-inline-block">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">$</div>
+                                <input type="text" id="valueFrom" class="form-control text-right" value="1">
+                            </div>
+                        </div>
+                    </div>
+                    <!--TO-->
+                    <div class="col-lg-6 pb-2 d-flex">
+                        <select id="divisaTo" name="divisaTo" class="form-control d-inline-block w-auto">
+                            <option value="usd">USD</option>
+                            <option value="eur">EUR</option>
+                            <option selected value="clp">CLP</option>
+                        </select>
+                        <div class="input-group mx-2  d-inline-block">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">$</div>
+                                <input type="text" id="valueFrom" class="form-control text-right" value="1">
+                            </div>
+                        </div>               
+                    </div>
+                </div>
+                <!--BUTTON-->
+                <div class="form-row justify-content-center pt-4">
+                    <button type="button" id="btnConvertir" class="btn btn-primary">Convertir</button>
+                </div>
+
+            </fieldset>
+
+        </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
