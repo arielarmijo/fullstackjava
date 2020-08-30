@@ -6,15 +6,47 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <style>
     body {
         background-color: lightgray;
+        min-width: 200px;
+    }
+
+/*     fieldset, .form-row, .form-row div, main {
+        border: 1px dotted black;
+    } */
+
+    fieldset {
+            padding: 0px 10px;
+        }
+
+    legend {
+        font-size: 1.2em;
+        text-align: center;
+    }
+
+    @media (min-width: 576px) {
+        fieldset {
+            padding: 0px 20px;
+        }
+
+        legend {
+            font-size: 1.5em;
+            text-align: left;
+        }
+    }
+
+    @media (min-width: 768px) {
+        fieldset {
+            padding: 0px 25px;
+        }
     }
 </style>
 
-<body>
+<body onload="convertirUp2Down()">
 
     <nav class="navbar shadow">
         <!--Logo y nombre tienda-->
@@ -27,55 +59,90 @@
         </a>
       </nav>
 
-  <main>
-        <div class="container my-5 px-0">
-            <fieldset class="pt-3 pb-4 px-2 border-lg shadow">
+  <main class="container mt-5 p-0 d-flex justify-content-center">
 
-                <legend class="text-dark">Cálculo de divisas</legend>
-    
-                <div class="form-row">
-                    <!--FROM-->
-                    <div class="col-lg-6 pb-2 d-flex">
-                        <select id="divisaFrom" name="divisaFrom" class="form-control d-inline-block w-auto">
-                            <option value="usd">USD</option>
+            <fieldset class="border-lg shadow pb-4">
+                <!--Título-->
+                <legend class="text-dark pt-1 pb-2">Conversión de divisas</legend>
+                <!--Controles-->
+                <div class="form-row flex-column align-items-center">
+                    <!--LEFT-->
+                    <div class="d-flex align-items-center mb-2">
+                        <!--Selecctor divisa-->
+                        <select id="divisaUp" class="form-control d-inline-block w-auto mr-1" onchange="convertirUp2Down()">
+                            <option selected value="usd">USD</option>
                             <option value="eur">EUR</option>
                             <option value="clp">CLP</option>
                         </select>
-                        <div class="input-group mx-2 d-inline-block">
+                        <!--Valor divisa-->
+                        <div class="input-group d-inline-block w-auto">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">$</div>
-                                <input type="text" id="valueFrom" class="form-control text-right" value="1">
+                                <input type="text" id="valueUp" class="form-control text-right" value="1" onkeyup="convertirUp2Down()">
                             </div>
                         </div>
                     </div>
-                    <!--TO-->
-                    <div class="col-lg-6 pb-2 d-flex">
-                        <select id="divisaTo" name="divisaTo" class="form-control d-inline-block w-auto">
+                    <!--TOGGLE BUTTON-->
+<!--                     <div class="p-2">
+                        <div class="btn-group btn-group-sm">
+                            <button type="button" id="btnLeft" class="btn btn-secondary"><span class="fa fa-arrow-down"></span></button>
+                            <button type="button" id="btnRight" class="btn btn-secondary"><span class="fa fa-arrow-up"></button>
+                        </div>
+                    </div> -->
+                    <!--RIGHT-->
+                    <div class="d-flex align-items-center">
+                        <!--Selecctor divisa-->
+                        <select id="divisaDown" class="form-control d-inline-block w-auto mr-1" onchange="convertirDown2Up()">
                             <option value="usd">USD</option>
                             <option value="eur">EUR</option>
                             <option selected value="clp">CLP</option>
                         </select>
-                        <div class="input-group mx-2  d-inline-block">
+                        <!--Valor divisa-->
+                        <div class="input-group d-inline-block">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">$</div>
-                                <input type="text" id="valueFrom" class="form-control text-right" value="1">
+                                <input type="text" id="valueDown" class="form-control text-right" onkeyup="convertirDown2Up()">
                             </div>
                         </div>               
                     </div>
                 </div>
                 <!--BUTTON-->
-                <div class="form-row justify-content-center pt-4">
-                    <button type="button" id="btnConvertir" class="btn btn-primary">Convertir</button>
-                </div>
+<!--                 <div class="form-row justify-content-center py-4">
+                    <button type="button" id="btnConvertir" class="btn btn-primary" onclick="convertir()">Convertir</button>
+                </div> -->
 
             </fieldset>
 
-        </div>
     </main>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+
+        var tasa = {
+            usd: 779.50,
+            eur: 928.11,
+            clp: 1
+        };
+        
+        function convertirUp2Down() {
+            let valueUp = document.getElementById("valueUp").value;
+            let divisaUp = document.getElementById("divisaUp").value;
+            let divisaDown = document.getElementById("divisaDown").value;
+            document.getElementById("valueDown").value = valueUp * tasa[divisaUp] / tasa[divisaDown];
+        }
+
+        function convertirDown2Up() {
+            let valueDown = document.getElementById("valueDown").value;
+            let divisaUp = document.getElementById("divisaUp").value;
+            let divisaDown = document.getElementById("divisaDown").value;
+            document.getElementById("valueUp").value = valueDown * tasa[divisaDown] / tasa[divisaUp];
+        }
+
+    </script>
+    
 </body>
 
 </html>
