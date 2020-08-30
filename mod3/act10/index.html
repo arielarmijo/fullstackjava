@@ -60,13 +60,13 @@
       </nav>
 
   <main class="container mt-5 p-0 d-flex justify-content-center">
-
+            <!--Conversor de Divisas-->
             <fieldset class="border-lg shadow pb-4">
                 <!--Título-->
-                <legend class="text-dark pt-1 pb-2">Conversión de divisas</legend>
+                <legend class="text-dark pt-1 pb-2">Conversor de divisas</legend>
                 <!--Controles-->
                 <div class="form-row flex-column align-items-center">
-                    <!--LEFT-->
+                    <!--UP-->
                     <div class="d-flex align-items-center mb-2">
                         <!--Selecctor divisa-->
                         <select id="divisaUp" class="form-control d-inline-block w-auto mr-1" onchange="convertirUp2Down()">
@@ -82,14 +82,7 @@
                             </div>
                         </div>
                     </div>
-                    <!--TOGGLE BUTTON-->
-<!--                     <div class="p-2">
-                        <div class="btn-group btn-group-sm">
-                            <button type="button" id="btnLeft" class="btn btn-secondary"><span class="fa fa-arrow-down"></span></button>
-                            <button type="button" id="btnRight" class="btn btn-secondary"><span class="fa fa-arrow-up"></button>
-                        </div>
-                    </div> -->
-                    <!--RIGHT-->
+                    <!--DOWN-->
                     <div class="d-flex align-items-center">
                         <!--Selecctor divisa-->
                         <select id="divisaDown" class="form-control d-inline-block w-auto mr-1" onchange="convertirDown2Up()">
@@ -106,11 +99,6 @@
                         </div>               
                     </div>
                 </div>
-                <!--BUTTON-->
-<!--                 <div class="form-row justify-content-center py-4">
-                    <button type="button" id="btnConvertir" class="btn btn-primary" onclick="convertir()">Convertir</button>
-                </div> -->
-
             </fieldset>
 
     </main>
