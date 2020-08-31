@@ -101,8 +101,10 @@
 
     <script>
 
+        // Inicializa el estado de los controles
         document.body.onload = iniciarlizar;
 
+        // Relaciona los distintos controles entre sí
         divisaUp.onchange = divisaChanged;
         divisaUp.valor = valorUp;
 
@@ -121,8 +123,7 @@
         valorDown.otroValor = valorUp;
         valorDown.error = errorDown;
 
-        var errorMsg = "Ingrese solo números";
-
+        // tasas de cambio
         var tasa = {
             usd: 779.50,
             eur: 928.11,
@@ -134,8 +135,9 @@
         function iniciarlizar() {
             llenarDivisas(divisaUp);
             llenarDivisas(divisaDown);
-            divisaUp.value = "usd";
-            divisaDown.value = "clp";
+            let divisas = Object.keys(tasa);
+            divisaUp.value = divisas[0];
+            divisaDown.value = divisas[divisas.length - 1];
             convertir.call(valorUp);
         }
 
@@ -158,7 +160,7 @@
             if (isOk)
                 input.error.innerHTML = "";
             else
-                input.error.innerHTML = errorMsg;
+                input.error.innerHTML = "Ingrese solo números";
             return isOk;
         }
         
