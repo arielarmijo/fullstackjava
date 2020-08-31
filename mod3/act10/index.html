@@ -44,12 +44,12 @@
 
 </style>
 
-<body onload="convertirUp2Down()">
+<body>
 
     <nav class="navbar shadow">
         <!--Logo y nombre tienda-->
         <a href="index.html" class="navbar-brand d-flex justify-content-center align-items-center w-100">
-          <img src="img/logo.png" class="rounded mx-3 d-none d-sm-block" width="120" height="120">
+          <img src="img/logo.png" class="rounded mx-3 d-none d-sm-block" width="90" height="90">
           <div class="d-flex flex-column align-items-center">
               <h1 id="titulo" class="text-wrap text-center">Billete Seguro</h1>
               <small class="d-block">Casa de Cambio</small>
@@ -67,7 +67,7 @@
                     <!--UP-->
                     <div class="d-flex mb-2">
                         <!--Selecctor divisa-->
-                        <select id="divisaUp" class="form-control d-inline-block w-auto mr-1" onchange="divisaUpChanged()">
+                        <select id="divisaUp" class="form-control d-inline-block w-auto mr-1">
                             <option selected value="usd">USD</option>
                             <option value="eur">EUR</option>
                             <option value="uf">UF</option>
@@ -77,7 +77,7 @@
                         <div class="input-group d-inline-block w-auto">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">$</div>
-                                <input type="text" id="valorUp" class="form-control text-right" value="1" onkeyup="convertirUp2Down()">
+                                <input type="text" id="valorUp" class="form-control text-right" value="1">
                             </div>
                             <div id="errorUp" class="text-right text-danger"></div>
                         </div>
@@ -85,7 +85,7 @@
                     <!--DOWN-->
                     <div class="d-flex">
                         <!--Selecctor divisa-->
-                        <select id="divisaDown" class="form-control d-inline-block w-auto mr-1" onchange="divisaDownChanged()">
+                        <select id="divisaDown" class="form-control d-inline-block w-auto mr-1">
                             <option value="usd">USD</option>
                             <option value="eur">EUR</option>
                             <option value="uf">UF</option>
@@ -95,7 +95,7 @@
                         <div class="input-group d-inline-block">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">$</div>
-                                <input type="text" id="valorDown" class="form-control text-right" onkeyup="convertirDown2Up()">
+                                <input type="text" id="valorDown" class="form-control text-right">
                             </div>
                             <div id="errorDown" class="text-right text-danger"></div>
                         </div>               
@@ -111,6 +111,26 @@
 
     <script>
 
+        document.body.onload = iniciarlizar;
+
+        divisaUp.onchange = divisaChanged;
+        divisaUp.valor = valorUp;
+        
+        divisaDown.onchange = divisaChanged;
+        divisaDown.valor = valorDown;
+        
+        valorUp.onkeyup = convertir;
+        valorUp.divisa = divisaUp;
+        valorUp.otraDivisa = divisaDown;
+        valorUp.otroValor = valorDown;
+        valorUp.error = errorUp;
+
+        valorDown.onkeyup= convertir;
+        valorDown.divisa = divisaDown;
+        valorDown.otraDivisa = divisaUp;
+        valorDown.otroValor = valorUp;
+        valorDown.error = errorDown;
+
         var errorMsg = "Ingrese solo números";
 
         var tasa = {
@@ -119,40 +139,28 @@
             uf: 28678.52,
             clp: 1
         };
-        
-        function convertirUp2Down() {
-            if (validarInput(valorUp))
-                valorDown.value = valorUp.value * tasa[divisaUp.value] / tasa[divisaDown.value];
-            else 
-                errorUp.innerHTML = errorMsg;
+
+        function iniciarlizar() {
+            convertir.call(valorUp);
         }
 
-        function convertirDown2Up() {
-            if (validarInput(valorDown)) 
-                valorUp.value = valorDown.value * tasa[divisaDown.value] / tasa[divisaUp.value];
-            else
-                errorDown.innerHTML = errorMsg;
+        function convertir() {
+            if (validar(this))
+                this.otroValor.value = this.value * tasa[this.divisa.value] / tasa[this.otraDivisa.value];
         }
 
-        function validarInput(input) {
-            console.log(input.value);
+        function validar(input) {
             let isOk = !isNaN(input.value);
-            if (isOk){
-                errorUp.innerHTML = "";
-                errorDown.innerHTML = "";
-            }
+            if (isOk)
+                input.error.innerHTML = "";
+            else
+                input.error.innerHTML = errorMsg;
             return isOk;
         }
         
-        //TODO: al cambiar divisa colocar un 1 en el input respectivo
-        function divisaUpChanged() {
-            valorUp.value = 1;
-            convertirUp2Down();
-        }
-
-        function divisaDownChanged() {
-            valorDown.value = 1;
-            convertirDown2Up();
+        function divisaChanged() {
+            this.valor.value = 1;
+            convertir.call(this.valor);
         }
 
     </script>
