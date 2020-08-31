@@ -67,12 +67,7 @@
                     <!--UP-->
                     <div class="d-flex mb-2">
                         <!--Selecctor divisa-->
-                        <select id="divisaUp" class="form-control d-inline-block w-auto mr-1">
-                            <option selected value="usd">USD</option>
-                            <option value="eur">EUR</option>
-                            <option value="uf">UF</option>
-                            <option value="clp">CLP</option>
-                        </select>
+                        <select id="divisaUp" class="form-control d-inline-block w-auto mr-1"></select>
                         <!--Valor divisa-->
                         <div class="input-group d-inline-block w-auto">
                             <div class="input-group-prepend">
@@ -85,12 +80,7 @@
                     <!--DOWN-->
                     <div class="d-flex">
                         <!--Selecctor divisa-->
-                        <select id="divisaDown" class="form-control d-inline-block w-auto mr-1">
-                            <option value="usd">USD</option>
-                            <option value="eur">EUR</option>
-                            <option value="uf">UF</option>
-                            <option selected value="clp">CLP</option>
-                        </select>
+                        <select id="divisaDown" class="form-control d-inline-block w-auto mr-1"></select>
                         <!--Valor divisa-->
                         <div class="input-group d-inline-block">
                             <div class="input-group-prepend">
@@ -115,7 +105,7 @@
 
         divisaUp.onchange = divisaChanged;
         divisaUp.valor = valorUp;
-        
+
         divisaDown.onchange = divisaChanged;
         divisaDown.valor = valorDown;
         
@@ -136,12 +126,26 @@
         var tasa = {
             usd: 779.50,
             eur: 928.11,
+            bgp: 1040.26,
             uf: 28678.52,
             clp: 1
         };
 
         function iniciarlizar() {
+            llenarDivisas(divisaUp);
+            llenarDivisas(divisaDown);
+            divisaUp.value = "usd";
+            divisaDown.value = "clp";
             convertir.call(valorUp);
+        }
+
+        function llenarDivisas(select) {
+            for (let item in tasa) {
+                var option = document.createElement("option");
+                option.text = item.toUpperCase();
+                option.value = item;
+                select.add(option);
+            }
         }
 
         function convertir() {
