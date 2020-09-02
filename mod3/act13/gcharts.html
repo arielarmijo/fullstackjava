@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilos.css">
+    <title>Google Charts</title>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    
+    <script>
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            var chart = new google.visualization.ChartWrapper({
+                containerId: 'chart'
+            });
+
+            var data = google.visualization.arrayToDataTable([
+                ['Task', 'Hours per Day'],
+                ['Work', 11],
+                ['Eat', 2],
+                ['Commute', 2],
+                ['Watch TV', 2],
+                ['Sleep', 7]
+            ]);
+
+            var options = {
+                title: 'My Daily Activities'
+            };
+
+            chart.setDataTable(data);
+            chart.setOptions(options);
+            chart.setChartType('PieChart');
+            chart.draw();
+
+            charType = document.getElementById("charType");
+            charType.onchange = update;
+            function update() {
+                chart.setChartType(this.value);
+                chart.draw();
+            }
+
+        }
+    </script>
+
+</head>
+
+<body>
+    <h3><a href="https://developers.google.com/chart">Google Charts</a></h3>
+    <select id="charType">
+        <option value='PieChart'>Circular</option>
+        <option value='BarChart'>Barras</option>
+        <option value='LineChart'>Líneas</option>
+    </select>
+    <div id="chart" style="width: 900px; height: 500px;"></div>
+</body>
+
+</html>

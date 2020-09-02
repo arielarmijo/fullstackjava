@@ -1,0 +1,45 @@
+h2 {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+table {
+    margin: 25px;
+    border-bottom: 2px solid black;
+    border-collapse: collapse;
+}
+
+th {
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}
+
+tr td:last-child {
+    text-align: right;
+}
+
+.chart {
+    position: relative;
+    width: 800px;
+}
+
+.population, .historical {
+    margin: 50px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+select {
+    margin: 10px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+#historical tbody td:not(:first-child) {
+    text-align: right;
+}

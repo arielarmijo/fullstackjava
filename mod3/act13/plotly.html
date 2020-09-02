@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <title>Plotly</title>
+</head>
+
+<body>
+
+    <h2><a href="https://plotly.com/javascript/">Plotly</a></h2>
+
+    <select id="charType" onchange="update();">
+        <option value='pie'>Circular</option>
+        <option value='bar'>Barras</option>
+        <option value='scatter'>Líneas</option>
+        <option value='markers'>Burbujas</option>
+    </select>
+    <div id="chart" style="width: 900px; height: 500px;"></div>
+
+    <script>
+
+        var data = [{
+            labels: ['Jirafas', 'Orangutanes', 'Monos'],
+            values: [20, 14, 23],
+            x: ['Jirafas', 'Orangutanes', 'Monos'],
+            y: [20, 14, 23],
+            marker: {
+                size: [40, 60, 80]
+            },
+            type: 'pie'
+        }];
+
+        var layout = {
+            title: "Zoológico Metropolitano"
+        };
+
+        Plotly.newPlot('chart', data, layout);
+
+        function update() {
+            data[0].type = charType.value;
+            Plotly.newPlot('chart', data, layout);
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>

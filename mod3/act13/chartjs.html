@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <title>Chart.js</title>
+</head>
+
+<body>
+
+    <h2><a href="https://www.chartjs.org/docs/latest/">ChartJs</a></h2>
+
+    <div class="container">
+        <div class="population">
+            <!-- TABLA -->
+            <table id="population">
+                <thead>
+                    <tr>
+                        <th>País</th>
+                        <th>Población</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>China</td>
+                        <td>1,379,302,771</td>
+                    </tr>
+                    <tr>
+                        <td>India</td>
+                        <td>1,281,935,911</td>
+                    </tr>
+                    <tr>
+                        <td>Estados Unidos</td>
+                        <td>326,625,791</td>
+                    </tr>
+                    <tr>
+                        <td>Indonesia</td>
+                        <td>260,580,739</td>
+                    </tr>
+                    <tr>
+                        <td>Brazil</td>
+                        <td>207,353,391</td>
+                    </tr>
+                    <tr>
+                        <td>Pakistán</td>
+                        <td>204,924,861</td>
+                    </tr>
+                    <tr>
+                        <td>Nigeria</td>
+                        <td>190,632,261</td>
+                    </tr>
+                    <tr>
+                        <td>Bangladesh</td>
+                        <td>157,826,578</td>
+                    </tr>
+                    <tr>
+                        <td>Rusia</td>
+                        <td>142,257,519</td>
+                    </tr>
+                    <tr>
+                        <td>Japón</td>
+                        <td>126,451,398</td>
+                    </tr>
+                </tbody>
+            </table>
+    
+            <!-- GRÁFICO -->
+            <div class="chart">
+                <select onchange="update(this.value);">
+                    <option value='pie'>Circular</option>
+                    <option value='doughnut'>Dona</option>
+                    <option value='bar'>Barras</option>
+                    <option value='line'>Líneas</option>
+                    <option value='polarArea'>Polar</option>
+                    <option value='radar'>Radar</option>
+                </select>
+                <canvas id="chart1"></canvas>
+            </div>
+        </div>
+
+        <div class="historical">
+            <table id="historical">
+                <thead>
+                    <tr>
+                        <th>Region</th>
+                        <th>1500</th>
+                        <th>1600</th>
+                        <th>1700</th>
+                        <th>1750</th>
+                        <th>1800</th>
+                        <th>1850</th>
+                        <th>1900</th>
+                        <th>1950</th>
+                        <th>1999</th>
+                        <th>2050</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Africa</td>
+                        <td>86</td>
+                        <td>114</td>
+                        <td>106</td>
+                        <td>106</td>
+                        <td>107</td>
+                        <td>111</td>
+                        <td>133</td>
+                        <td>221</td>
+                        <td>783</td>
+                        <td>2478</td>
+                    </tr>
+                    <tr>
+                        <td>Asia</td>
+                        <td>282</td>
+                        <td>350</td>
+                        <td>411</td>
+                        <td>502</td>
+                        <td>635</td>
+                        <td>809</td>
+                        <td>947</td>
+                        <td>1402</td>
+                        <td>3700</td>
+                        <td>5267</td>
+                    </tr>
+                    <tr>
+                        <td>Europe</td>
+                        <td>168</td>
+                        <td>170</td>
+                        <td>178</td>
+                        <td>190</td>
+                        <td>203</td>
+                        <td>276</td>
+                        <td>408</td>
+                        <td>547</td>
+                        <td>675</td>
+                        <td>734</td>
+                    </tr>
+                    <tr>
+                        <td>Latin America</td>
+                        <td>40</td>
+                        <td>20</td>
+                        <td>10</td>
+                        <td>16</td>
+                        <td>24</td>
+                        <td>38</td>
+                        <td>74</td>
+                        <td>167</td>
+                        <td>508</td>
+                        <td>784 </td>
+                    </tr>
+                    <tr>
+                        <td>North America</td>
+                        <td>6</td>
+                        <td>3</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>7</td>
+                        <td>26</td>
+                        <td>82</td>
+                        <td>172</td>
+                        <td>312</td>
+                        <td>433</td>
+                    </tr>
+                </tbody>
+            </table>
+    
+            <div class="chart">
+                <canvas id="chart2"></canvas>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+
+        function randomColor(alpha) {
+            var r = Math.floor(Math.random() * 256);
+            var b = Math.floor(Math.random() * 256);
+            var g = Math.floor(Math.random() * 256);
+            return `rgba(${r}, ${b}, ${g}, ${alpha})`;
+        }
+
+        //console.log(randomColor(1));
+
+        var paises = [];
+        var poblaciones = [];
+        var colores = [];
+
+        var tableRows = Array.from(document.getElementById("population").rows);
+        //console.log(filas[1].cells[1].innerText.replace(/,/g,""));
+        tableRows
+            .map(row => r = {
+                pais: row.cells[0].innerText,
+                poblacion: Number(row.cells[1].innerText.replace(/,/g, ""))
+            })
+            .filter(row => !isNaN(row.poblacion))
+            .forEach(row => {
+                //console.log(row);
+                paises.push(row.pais);
+                poblaciones.push(row.poblacion);
+                colores.push(randomColor(1));
+            });
+
+        //console.log(paises);
+        //console.log(poblaciones);
+
+        var data = {
+            labels: paises,
+            datasets: [{
+                label: 'dataset',
+                data: poblaciones,
+                backgroundColor: colores,
+                borderWidth: 2
+            }]
+        };
+
+        var options = {
+            title: {
+                display: true,
+                text: "Población Mundial"
+            },
+            legend: {
+                display: true,
+                position: 'right',
+                labels: {
+                    boxWidth: 20
+                }
+            }
+        };
+
+        var ctx = document.getElementById('chart1').getContext('2d');
+        var myChart = new Chart(ctx, { type: 'pie', data, options });
+
+        function update(type) {
+            if (myChart != null)
+                myChart.destroy();
+            data.datasets[0].backgroundColor = colores.map(c => randomColor(1));
+            myChart = new Chart(ctx, { type, data, options });
+        }
+
+
+        var t = Array.from(document.getElementById("historical").rows);
+        //console.log(h[0].cells[1]);
+
+        var f = t.map(row => Array.from(row.cells).map(cell => cell.innerText));
+        //console.log(f);
+        f.forEach(row => row.shift());
+        //console.log(countries);
+
+        var years = f[0].map(c => Number(c));
+        var africa = f[1].map(c => Number(c));
+        var asia = f[2].map(c => Number(c));
+        var europe = f[3].map(c => Number(c));
+        var latinAmerica = f[4].map(c => Number(c));
+        var northAmerica = f[5].map(c => Number(c));
+
+        console.log(years, africa, asia, europe, latinAmerica, northAmerica);
+
+        var ctx2 = document.getElementById('chart2').getContext('2d');
+        var myChart2 = new Chart(ctx2, {
+            type: 'line',
+            data: {
+                labels: years,
+                datasets: [{
+                    data: africa,
+                    label: "Africa",
+                    borderColor: randomColor(1)
+                },
+                {
+                    data: asia,
+                    label: "Asia",
+                    borderColor: randomColor(1)
+                },
+                {
+                    data: europe,
+                    label: "Europe",
+                    borderColor: randomColor(1)
+                },
+                {
+                    data: latinAmerica,
+                    label: "Latin Americas",
+                    borderColor: randomColor(1)
+                },
+                {
+                    data: northAmerica,
+                    label: "North Americas",
+                    borderColor: randomColor(1)
+                }
+                ]
+            },
+            options});
+
+    </script>
+
+</body>
+
+</html>
