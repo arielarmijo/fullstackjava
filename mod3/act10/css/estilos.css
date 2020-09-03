@@ -1,0 +1,30 @@
+body {
+    background-color: lightgray;
+    min-width: 200px;
+}
+
+fieldset {
+        padding: 0px 10px;
+    }
+
+legend {
+    font-size: 1.2em;
+    text-align: center;
+}
+
+@media (min-width: 576px) {
+    fieldset {
+        padding: 0px 20px;
+    }
+
+    legend {
+        font-size: 1.5em;
+        text-align: left;
+    }
+}
+
+@media (min-width: 768px) {
+    fieldset {
+        padding: 0px 25px;
+    }
+}

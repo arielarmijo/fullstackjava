@@ -6,172 +6,63 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="js/ajax-utils.js"></script>
+    <script src="js/script.js"></script>
 </head>
-
-<style>
-
-    body {
-        background-color: lightgray;
-        min-width: 200px;
-    }
-
-    fieldset {
-            padding: 0px 10px;
-        }
-
-    legend {
-        font-size: 1.2em;
-        text-align: center;
-    }
-
-    @media (min-width: 576px) {
-        fieldset {
-            padding: 0px 20px;
-        }
-
-        legend {
-            font-size: 1.5em;
-            text-align: left;
-        }
-    }
-
-    @media (min-width: 768px) {
-        fieldset {
-            padding: 0px 25px;
-        }
-    }
-
-</style>
 
 <body>
 
     <nav class="navbar shadow">
         <!--Logo y nombre tienda-->
         <a href="index.html" class="navbar-brand d-flex justify-content-center align-items-center w-100">
-          <img src="img/logo.png" class="rounded mx-3 d-none d-sm-block" width="90" height="90">
-          <div class="d-flex flex-column align-items-center">
-              <h1 id="titulo" class="text-wrap text-center">Billete Seguro</h1>
-              <small class="d-block">Casa de Cambio</small>
-          </div>
+            <img src="img/logo.png" class="rounded mx-3 d-none d-sm-block" width="90" height="90">
+            <div class="d-flex flex-column align-items-center">
+                <h1 id="titulo" class="text-wrap text-center">Billete Seguro</h1>
+                <small class="d-block">Casa de Cambio</small>
+            </div>
         </a>
-      </nav>
+    </nav>
 
     <main class="container mt-5 p-0 d-flex justify-content-center">
-            <!--Conversor de Divisas-->
-            <fieldset class="border-lg shadow pb-4">
-                <!--Título-->
-                <legend class="text-dark pt-1 pb-2">Conversor de divisas</legend>
-                <!--Controles-->
-                <div class="form-row flex-column align-items-center">
-                    <!--UP-->
-                    <div class="d-flex mb-2">
-                        <!--Selecctor divisa-->
-                        <select id="divisaUp" class="form-control d-inline-block w-auto mr-1"></select>
-                        <!--Valor divisa-->
-                        <div class="input-group d-inline-block w-auto">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">$</div>
-                                <input type="text" id="valorUp" class="form-control text-right" value="1">
-                            </div>
-                            <div id="errorUp" class="text-right text-danger"></div>
+        <!--Conversor de Divisas-->
+        <fieldset class="border-lg shadow pb-4">
+            <!--Título-->
+            <legend class="text-dark pt-1 pb-2">Conversor de divisas</legend>
+            <p>Última actualización: <span id="fecha"></span></p>
+            <!--Controles-->
+            <div class="form-row flex-column align-items-center">
+                <!--UP-->
+                <div class="d-flex mb-2">
+                    <!--Selecctor divisa-->
+                    <select id="divisaUp" class="form-control d-inline-block w-auto mr-1"></select>
+                    <!--Valor divisa-->
+                    <div class="input-group d-inline-block w-auto">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">$</div>
+                            <input type="text" id="valorUp" class="form-control text-right" value="1">
                         </div>
-                    </div>
-                    <!--DOWN-->
-                    <div class="d-flex">
-                        <!--Selecctor divisa-->
-                        <select id="divisaDown" class="form-control d-inline-block w-auto mr-1"></select>
-                        <!--Valor divisa-->
-                        <div class="input-group d-inline-block">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">$</div>
-                                <input type="text" id="valorDown" class="form-control text-right">
-                            </div>
-                            <div id="errorDown" class="text-right text-danger"></div>
-                        </div>               
+                        <div id="errorUp" class="text-right text-danger"></div>
                     </div>
                 </div>
-            </fieldset>
+                <!--DOWN-->
+                <div class="d-flex">
+                    <!--Selecctor divisa-->
+                    <select id="divisaDown" class="form-control d-inline-block w-auto mr-1"></select>
+                    <!--Valor divisa-->
+                    <div class="input-group d-inline-block">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">$</div>
+                            <input type="text" id="valorDown" class="form-control text-right">
+                        </div>
+                        <div id="errorDown" class="text-right text-danger"></div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
 
     </main>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-    <script>
-
-        // Inicializa el estado de los controles
-        document.body.onload = iniciarlizar;
-
-        // Relaciona los distintos controles entre sí
-        divisaUp.onchange = divisaChanged;
-        divisaUp.valor = valorUp;
-
-        divisaDown.onchange = divisaChanged;
-        divisaDown.valor = valorDown;
-        
-        valorUp.onkeyup = convertir;
-        valorUp.divisa = divisaUp;
-        valorUp.otraDivisa = divisaDown;
-        valorUp.otroValor = valorDown;
-        valorUp.error = errorUp;
-
-        valorDown.onkeyup= convertir;
-        valorDown.divisa = divisaDown;
-        valorDown.otraDivisa = divisaUp;
-        valorDown.otroValor = valorUp;
-        valorDown.error = errorDown;
-
-        // TODO: Utilizar JSON para actualizar las tasas
-        // tasas de cambio
-        var tasa = {
-            usd: 779.50,
-            eur: 928.11,
-            bgp: 1040.26,
-            uf: 28678.52,
-            clp: 1
-        };
-
-        function iniciarlizar() {
-            llenarDivisas(divisaUp);
-            llenarDivisas(divisaDown);
-            let divisas = Object.keys(tasa);
-            divisaUp.value = divisas[0];
-            divisaDown.value = divisas[divisas.length - 1];
-            convertir.call(valorUp);
-        }
-
-        function llenarDivisas(select) {
-            for (let item in tasa) {
-                var option = document.createElement("option");
-                option.text = item.toUpperCase();
-                option.value = item;
-                select.add(option);
-            }
-        }
-
-        function convertir() {
-            if (validar(this))
-                this.otroValor.value = this.value * tasa[this.divisa.value] / tasa[this.otraDivisa.value];
-        }
-
-        function validar(input) {
-            let isOk = !isNaN(input.value);
-            if (isOk)
-                input.error.innerHTML = "";
-            else
-                input.error.innerHTML = "Ingrese solo números";
-            return isOk;
-        }
-        
-        function divisaChanged() {
-            this.valor.value = 1;
-            convertir.call(this.valor);
-        }
-
-    </script>
-    
 </body>
 
 </html>
