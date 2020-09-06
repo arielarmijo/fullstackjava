@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Minimarket Mikasa</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/marquee.js"></script>
+    <script src="js/indicadores.js"></script>
+    <script src="js/validacion.js"></script>
+</head>
+
+<body>
+
+    <div class="container-fluid">
+
+        <!--Navegación-->
+        <nav class="navbar navbar-expand-sm navbar-light bg-light border shadow mb-3">
+            <a href="index.html" class="navbar-brand d-flex align-items-center">
+                <img src="img/logo.png" width="90" height="90">
+                <h1 class="navbar-text ml-2 mb-0">Minimarket deToDo</h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="navbarContent" class="collapse navbar-collapse justify-content-end">
+                <div class="navbar-nav">
+                    <a href="index.html" class="nav-link text-center active">Inicio</a>
+                    <a href="registro.html" class="nav-link text-center">Registro</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Indicadores Económicos -->
+        <marquee id="indicadores" behavior="scroll" scrollamount="2" direction="left">
+            <span>Indicadores Económicos (<span id="fecha"></span>):</span>
+            <span>UF = $<span id="uf"></span></span>
+            <span>UTM = $<span id="utm"></span></span>
+            <span>Dolar = $<span id="dolar"></span></span>
+        </marquee>
+
+        <!-- Formulario -->
+        <div id="datosCliente" class="row flex-column align-content-center py-3 mt-3">
+            <div class="col-md-8 col-lg-6">
+                <h3>Datos Cliente</h3>
+                <form id="cliente" action="carrito.html" class="p-3 border-dark shadow-lg needs-validation" novalidate>
+                    <!--Nombre-->
+                    <div class="form-group">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" name="nombre" class="form-control validar texto"
+                            placeholder="Ingrese su nombre" value="Alan">
+                        <div class="invalid-feedback"></div>
+                    </div>
+                    <!-- Apellido -->
+                    <div class="form-group">
+                        <label for="apellido">Apellido:</label>
+                        <input type="text" id="apellido" name="apellido" class="form-control validar texto"
+                            placeholder="Ingrese su apellido" value="brito">
+                        <div class="invalid-feedback"></div>
+                    </div>
+                    <!--Email-->
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="text" id="email" name="email" class="form-control validar email"
+                            placeholder="Ingrese su correo eléctronico" value="correo@falso.com">
+                        <div class="invalid-feedback"></div>
+                    </div>
+                    <!--Botones-->
+                    <div class="form-group d-flex justify-content-end">
+                        <button id="btnLimpiar" type="reset" class="btn btn-primary mr-2">Limpiar</button>
+                        <button id="btnIniciar" type="submit" class="btn btn-primary">Ir al Carro</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Mensaje de estado -->
+        <div class="alert"></div>
+
+        <!--Footer-->
+        <footer class="bg-light border mt-3 py-3 text-center">
+            <h5>Minimarket Mikasa &copy 2020</h5>
+        </footer>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Carrito de Compras</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/marquee.js"></script>
+    <script src="js/indicadores.js"></script>
+    <script src="js/carrito.js"></script>
+</head>
+
+<body>
+
+    <div class="container-fluid">
+
+        <!--Navegación-->
+        <nav class="navbar navbar-expand-sm navbar-light bg-light border shadow mb-3">
+            <a href="index.html" class="navbar-brand d-flex align-items-center">
+                <img src="img/logo.png" width="90" height="90">
+                <h1 class="navbar-text ml-2 mb-0">Minimarket deToDo</h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="navbarContent" class="collapse navbar-collapse justify-content-end">
+                <div class="navbar-nav">
+                    <a href="index.html" class="nav-link text-center">Inicio</a>
+                    <a href="registro.html" class="nav-link text-center">Registro</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Indicadores Económicos -->
+        <marquee id="indicadores" behavior="scroll" scrollamount="2" direction="left">
+            <span>Indicadores Económicos (<span id="fecha"></span>):</span>
+            <span>UF = $<span id="uf"></span></span>
+            <span>UTM = $<span id="utm"></span></span>
+            <span>Dolar = $<span id="dolar"></span></span>
+        </marquee>
+
+        <!-- Venta -->
+        <div id="venta" class="row mt-4 mx-1">
+            <!-- Selección Productos -->
+            <div class="col-lg-7">
+                <h3>Productos</h3>
+                <!-- Cards de productos -->
+                <div id="productos" class="row">
+                </div>
+            </div>
+            <!-- Detalle de compra -->
+            <div class="col-lg-5">
+                <h3>Detalle de compra</h3>
+                <!-- Detalle boleta -->
+                <div class="d-flex flex-column justify-content-between">
+                    <!-- Productos comprados -->
+                    <div id="contenedor-boleta">
+                        <table id="detalle-boleta" class="table table-sm table-bordered table-striped table-hover">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th class="w-50">Producto</th>
+                                    <th>Precio</th>
+                                    <th>Cantidad</th>
+                                    <th>SubTotal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- Subtotal -->
+                    <div class="d-flex justify-content-between">
+                        <div>Total:</div>
+                        <div>$ <span class="totalVenta">0</span></div>
+                    </div>
+                </div>
+                <!-- Botones Totalizar y Cancelar venta -->
+                <div class="d-flex justify-content-between my-2">
+                    <button type="button" id="btnCancelar" class="btn btn-secondary">Cancelar</button>
+                    <button type="button" id="btnTotalizar" class="btn btn-primary">Totalizar</button>
+                </div>
+            </div>
+        </div>
+
+        <!--Footer-->
+        <footer class="bg-light border mt-3 py-3 text-center">
+            <h4 class="small">Minimarket Mikasa &copy 2020</h4>
+        </footer>
+
+        <!-- Modal Total venta -->
+        <div id="boletaModal" class="modal fade" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Minimarket Mikasa</h5>
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span>&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="mb-0">Nombre: <span id="nombreCliente"></span></p>
+                        <p class="mb-0">Apellido: <span id="apellidoCliente"></span></p>
+                        <p class="mb-0">Correo: <span id="emailCliente"></span></p>
+                        <h4 class="my-3 d-flex justify-content-between">Total a pagar:<span class="d-inline-block">$<span class="totalVenta"></span></span></h4>
+                        <div id="imprimir-boleta" class="d-flex flex-column align-items-center"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button id="btnPagar" type="button" class="btn btn-primary">Pagar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
