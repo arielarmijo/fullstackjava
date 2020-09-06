@@ -2,7 +2,6 @@
 document.addEventListener("DOMContentLoaded",
   function (event) {
 
-
     // Relaciona los distintos controles entre sí
     divisaUp.onchange = divisaChanged;
     divisaUp.valor = valorUp;
@@ -91,7 +90,6 @@ document.addEventListener("DOMContentLoaded",
       this.valor.value = 1;
       convertir.call(this.valor);
     }
-
 
   }
 );
