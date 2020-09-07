@@ -11,25 +11,27 @@
 </head>
 
 <body>
-    <div id="sala">
-        <div id="pelicula">
-            <label for="peliculas">Seleccione película</label>
-            <select id="peliculas" name="peliculas" class="form-control"></select>
-            <p>Precio $ <span id="precio"></span></p>
-        </div>
-        <div id="simbologia">
-            <p>
-                <div class="butaca ocupado"></div>N/A
-                <div class="butaca"></div>Disponible
-                <div class="butaca seleccionado"></div>Seleccionado
-            </p>
-        </div>
-        <div id="pantalla"></div>
-        <div id="butacas"></div>
-        <div id="venta">
-            <p>Asientos seleccionados: <span id="numeroAsientos"></span> (<span id="asientos"></span>)</p>
-            <p>Precio a pagar: $ <span id="precioTotal"></span></p>
-            <button id="btnPagar" class="btn btn-primary">Pagar</button>
+    <div class="container d-flex justify-content-center">
+        <div id="sala">
+            <div id="pelicula">
+                <label for="peliculas">Seleccione película</label>
+                <select id="peliculas" name="peliculas" class="form-control"></select>
+                <p>Precio<span id="precio"></span></p>
+            </div>
+            <div id="simbologia">
+                <p>
+                    <div class="butaca ocupado"></div>N/A
+                    <div class="butaca"></div>Disponible
+                    <div class="butaca seleccionado"></div>Seleccionado
+                </p>
+            </div>
+            <div id="pantalla"></div>
+            <div id="butacas"></div>
+            <div id="venta">
+                <p>Asientos seleccionados:<span id="numeroAsientos"></span><span id="asientos"></span></p>
+                <p>Precio a pagar:<span id="precioTotal"></span></p>
+                <button id="btnPagar" class="btn btn-primary">Pagar</button>
+            </div>
         </div>
     </div>
 

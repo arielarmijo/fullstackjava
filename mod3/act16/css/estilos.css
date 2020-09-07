@@ -36,7 +36,9 @@ body {
 
 .fila {
     display: flex;
+    align-items: center;
     width: auto;
+    font-family: monospace;
 }
 
 .butaca {
@@ -44,6 +46,15 @@ body {
     width: 25px;
     height: 25px;
     background-color: white;
+    text-align: center;
+}
+
+.butaca:first-child {
+    margin-left: 15px;
+}
+
+.butaca:nth-child(2), .butaca:nth-last-child(3) {
+    margin-right: 30px;
 }
 
 .seleccionado {
@@ -57,4 +68,13 @@ body {
 #venta {
     margin-top: 25px;
     text-align: center;
+}
+
+#numeroAsientos, #asientos, #precio, #precioTotal {
+    margin-left: 15px;
+}
+
+#precioTotal {
+    font-size: 1.2em;
+    font-weight: bold;
 }
