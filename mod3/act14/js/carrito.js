@@ -1,82 +1,81 @@
+// CONSTANTES
+const IVA = 0.19;
+
+// VARIABLES
+var nombre, apellido, email, total, productos, compra;
+
+total = 0;
+
+// Formateador de precio
+var fmt = new Intl.NumberFormat('es-CL', {
+    style: 'currency',
+    currency: 'CLP'
+});
+
+// Crea el objeto producto
+function Producto(id, nombre, precio, img) {
+    this.id = id;
+    this.nombre = nombre;
+    this.precio = Math.round(precio * (1 + IVA));
+    this.img = "img/productos/" + img;
+    return this;
+}
+
+Producto.prototype.crearTarjeta = function () {
+    // Tarjeta bootstrap
+    var card = document.createElement("div");
+    card.classList.add("card", "col-sm-3");
+    // Imagen
+    var img = document.createElement("img");
+    img.src = this.img;
+    img.classList.add("card-img-top");
+    // Cuerpo
+    var body = document.createElement("div");
+    body.classList.add("card-body", "p-0");
+    // Título
+    var title = document.createElement("p");
+    title.classList.add("card-title", "text-center");
+    title.textContent = this.nombre;
+    // Precio
+    var text = document.createElement("p");
+    text.classList.add("card-text", "text-right", "font-weight-bold");
+    text.textContent = fmt.format(this.precio);
+    // Footer
+    var footer = document.createElement("div");
+    footer.classList.add("card-footer", "d-flex", "justify-content-end", "p-1");
+    var input = document.createElement("input");
+    input.type = "number";
+    input.min = 1;
+    input.value = 1;
+    var button = document.createElement("button");
+    button.id = this.id;
+    button.classList.add("btn", "btn-primary", "p-1", "ml-1", "producto");
+    button.textContent = "+";
+    // Armado final
+    body.appendChild(title);
+    body.appendChild(text);
+    footer.appendChild(input);
+    footer.appendChild(button);
+    card.appendChild(img);
+    card.appendChild(body);
+    card.appendChild(footer);
+    return card;
+};
+
+// Productos disponibles en el minimarket (precios sin IVA)
+var productos = [
+    new Producto(1, "Chocolate Milka Oreo 120&nbspg", 1750, "chocolate.jpg"),
+    new Producto(2, "Coca-Cola Lata 350&nbspml", 800, "cocacolalata.jpg"),
+    new Producto(3, "Jugo Naranja Light Watt's 1,5&nbspL", 1290, "jugonaranja.jpg"),
+    new Producto(4, "Leche Chocolate Semi Descremada 1&nbspL", 1200, "lechedeschoc.jpg"),
+    new Producto(5, "Leche Descremada 1&nbspL", 850, "lechedescremada.jpg"),
+    new Producto(6, "Mantequilla 250&nbspg", 1350, "mantequilla.jpg"),
+    new Producto(7, "Pack Cervezas Escudo", 5780, "packcervezas.jpg"),
+    new Producto(8, "Pan de Molde Multigrano 400&nbspg", 2350, "panmoldemulti.png"),
+    new Producto(9, "Papas Fritas Lays 420&nbspg", 2700, "papasfritas.jpg")
+];
+
 $(document).ready(function () {
-
-    // CONSTANTES
-    const IVA = 0.19;
-
-    // VARIABLES
-    var nombre, apellido, email, total, productos, compra;
-
-    total = 0;
-    // El array de compra no se utiliza por el momento
-    //compra = [];
-    // Productos disponibles en el minimarket (precios sin IVA)
-    productos = [
-        {
-            id: 1,
-            name: "Chocolate Milka Oreo 120&nbspg",
-            precio: 1750,
-            stock: 100,
-            img: "img/productos/chocolate.jpg"
-        },
-        {
-            id: 2,
-            name: "Coca-Cola Lata 350&nbspml",
-            precio: 800,
-            stock: 100,
-            img: "img/productos/cocacolalata.jpg"
-        },
-        {
-            id: 3,
-            name: "Jugo Naranja Light Watt's 1,5&nbspL",
-            precio: 1290,
-            stock: 100,
-            img: "img/productos/jugonaranja.jpg"
-        },
-        {
-            id: 4,
-            name: "Leche Chocolate Semi Descremada 1&nbspL",
-            precio: 1200,
-            stock: 100,
-            img: "img/productos/lechedeschoc.jpg"
-        },
-        {
-            id: 5,
-            name: "Leche Descremada 1&nbspL",
-            precio: 850,
-            stock: 100,
-            img: "img/productos/lechedescremada.jpg"
-        },
-        {
-            id: 6,
-            name: "Mantequilla 250&nbspg",
-            precio: 1350,
-            stock: 100,
-            img: "img/productos/mantequilla.jpg"
-        },
-        {
-            id: 7,
-            name: "Pack Cervezas Escudo",
-            precio: 5780,
-            stock: 100,
-            img: "img/productos/packcervezas.jpg"
-        },
-        {
-            id: 8,
-            name: "Pan de Molde Multigrano 400&nbspg",
-            precio: 2350,
-            stock: 100,
-            img: "img/productos/panmoldemulti.png"
-        },
-        {
-            id: 9,
-            name: "Papas Fritas Lays 420&nbspg",
-            precio: 2700,
-            stock: 100,
-            img: "img/productos/papasfritas.jpg"
-        }
-
-    ];
-
 
     // INICIALIZACIÓN
     // Recupera los datos del cliente
@@ -86,49 +85,36 @@ $(document).ready(function () {
     email = params.get("email");
 
     // Agrega las tarjetas de productos al div #productos
-    Array.from(productos).forEach(p => {
-        var card = `<div class="card col-sm-3">`;
-        card += `<img src=${p.img} class="card-img-top">`;
-        card += `<div class="card-body p-0">`;
-        card += `<p class="card-title text-center">${p.name}</p>`;
-        card += `<p class="card-text text-right font-weight-bold">$${aplicarIVA(p.precio)}</p>`;
-        card += `</div><div class="card-footer d-flex justify-content-end p-1">`;
-        card += `<input type="number" min="1" value="1">`;
-        card += `<button id="${p.id}" class="btn btn-primary p-1 ml-1 producto">Comprar</button></div></div>`;
-        $("#productos").append(card);
-    });
+    productos.forEach(p => {$("#productos").append(p.crearTarjeta());});
 
     // EVENTOS
     $("button.producto").click(function () {
 
-
         // Busca producto seleccionado entre todos los productos
         var item = productos.find(e => e.id == this.id);
 
-        // Agrega el producto seleccionado al array de compra
-        //compra.push(item);
-
         // Inserta una fila con los datos del producto seleccionado a la tabla detalle-boleta
-        var nombre = item.name;
-        var precio = aplicarIVA(item.precio);
+        var nombre = item.nombre;
+        var precio = item.precio;
         var cantidad = $(this).prev("input")[0].value;
         var subtotal = cantidad * precio;
+        var button = '<button class="btn btn-sm btn-danger">X</button>';
+   
         $('#detalle-boleta > tbody')
-            .prepend(`<tr><td>${nombre}</td><td>${precio}</td><td>${cantidad}</td><td>${subtotal}</td></tr>`);
+            .prepend(`<tr><td>${nombre}</td><td>${fmt.format(precio)}</td><td>${cantidad}</td><td>${fmt.format(subtotal)}</td><td>${button}</td></tr>`);
 
         // Agrega el evento borrar a la fila recién creada
-        $('#detalle-boleta > tbody tr:first-child').dblclick(function (event) {
-            console.log(event);
-            if (event.shiftKey) {
-                $(this).remove();
-                total -= subtotal;
-                $(".totalVenta").text(total);
-            }
+        $('#detalle-boleta > tbody tr:first-child button').click(function (event) {
+            console.log($($(this).parent()[0]).parent()[0]);
+            var $tr = $($(this).parent()[0]).parent()[0];
+            $tr.remove();
+            total -= subtotal;
+            $(".totalVenta").text(fmt.format(total));
         });
 
         // Muestra total de la venta
         total += subtotal;
-        $(".totalVenta").text(total);
+        $(".totalVenta").text((fmt.format(total)));
 
         // Reinicia el valor del input
         $(this).prev("input")[0].value = 1;
@@ -139,7 +125,7 @@ $(document).ready(function () {
     $("#btnCancelar").click(function () {
         $("#detalle-boleta > tbody > *").remove();
         total = 0;
-        $(".totalVenta").text(total);
+        $(".totalVenta").text(fmt.format(total));
     });
 
     // Muestra ventana modal con el total de la compra
@@ -160,13 +146,5 @@ $(document).ready(function () {
         $("#imprimir-boleta").html('<div class="spinner-border text-success text-center" role="status"></div><p>Imprimiendo boleta...</p>');
         setTimeout(function () { window.location.href = "index.html"; }, 2000);
     });
-
-
-    // FUNCIONES
-
-    function aplicarIVA(precio) {
-        return Math.round(precio * (1 + IVA));
-    }
-
 
 });

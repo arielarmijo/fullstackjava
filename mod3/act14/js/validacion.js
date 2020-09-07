@@ -5,7 +5,7 @@ $(document).ready(inicializar);
 function inicializar() {
 
     $registro = document.querySelector('.needs-validation');
-    console.log($registro);
+    //console.log($registro);
     $alerta = document.querySelector(".alert");
     $errors = $(".invalid-feedback");
     $inputs = $(".validar");

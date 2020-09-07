@@ -1,15 +1,28 @@
+var fmt = new Intl.NumberFormat('es-CL', {
+    style: 'currency',
+    currency: 'CLP'
+});
+
 $(document).ready(function () {
 
     (function () {
         $.ajax({
             url: "https://mindicador.cl/api",
-            success: function (result) {
-                //console.log(result);
-                $("#uf").text(result.uf.valor);
-                $("#utm").text(result.utm.valor);
-                $("#dolar").text(result.dolar.valor);
+            success: function (result, status, xhr) {
+                console.log(result);
+                $("#uf").text(fmt.format(result.uf.valor));
+                $("#utm").text(fmt.format(result.utm.valor));
+                $("#dolar").text(fmt.format(result.dolar.valor));
                 var lastUpdate = new Date(result.fecha);
                 $("#fecha").text(lastUpdate.toLocaleDateString());
+            },
+            error: function (xhr, status, error) {
+                console.log(status, error);
+                $("#uf").text("NA");
+                $("#utm").text("NA");
+                $("#dolar").text("NA");
+                $("#fecha").text("NA");
+
             }
         });
     })();
