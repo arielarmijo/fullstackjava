@@ -13,14 +13,16 @@ var fmt = new Intl.NumberFormat('es-CL', {
 });
 
 // Crea el objeto producto
-function Producto(id, nombre, precio, img) {
-    this.id = id;
+function Producto(nombre, precio, img) {
+    this.id = this.id;
+    //this.prototype.id++;
+    //console.log(this.id);
     this.nombre = nombre;
     this.precio = Math.round(precio * (1 + IVA));
     this.img = "img/productos/" + img;
-    return this;
 }
 
+Producto.prototype.id = 1;
 Producto.prototype.crearTarjeta = function () {
     // Tarjeta bootstrap
     var card = document.createElement("div");
@@ -62,6 +64,8 @@ Producto.prototype.crearTarjeta = function () {
     return card;
 };
 
+
+
 // Productos disponibles en el minimarket (precios sin IVA)
 var productos = [
     new Producto(1, "Chocolate Milka Oreo 120&nbspg", 1750, "chocolate.jpg"),
@@ -74,6 +78,9 @@ var productos = [
     new Producto(8, "Pan de Molde Multigrano 400&nbspg", 2350, "panmoldemulti.png"),
     new Producto(9, "Papas Fritas Lays 420&nbspg", 2700, "papasfritas.jpg")
 ];
+
+
+console.log(productos[0]);
 
 $(document).ready(function () {
 

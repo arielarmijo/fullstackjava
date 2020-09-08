@@ -1,22 +1,39 @@
-var $registro, $inputs, $alerta, $errors;
+var errorRequerido = "Este campo es obligatorio.";
+var errorRut = "Rut inválido.";
+var errorTexto = "Este campo no puede tener dígitos.";
+var errorTelefono = "Número de teléfono inválido.";
+var errorEmail = "Email inválido.";
+var error = "Error al validar sus datos, complete el formulario correctamente.";
+var confirmacion = "Sus datos fueron validados correctamente.";
 
-$(document).ready(inicializar);
+$(document).ready(function () {
 
-function inicializar() {
-
-    $registro = document.querySelector('.needs-validation');
-    //console.log($registro);
-    $alerta = document.querySelector(".alert");
-    $errors = $(".invalid-feedback");
-    $inputs = $(".validar");
-    $inputs.filter(".requerido").on("keyup validar", function (ev) { validarRequerido(this) });
-    $inputs.filter(".rut").on("keyup validar", function (ev) { validarRut(this) });
-    $inputs.filter(".texto").on("keyup validar", function (ev) { validarTexto(this) });
-    $inputs.filter(".telefono").on("keyup validar", function (ev) { validarTelefono(this) });
-    $inputs.filter(".email").on("keyup validar", function (ev) { validarEmail(this) });
+    var $registro = document.querySelector('.needs-validation');
+    var $alerta = document.querySelector(".alert");
+    
+    $(".validar-requerido").on("keyup validar", function (ev) { validarCampo(this, tieneDatos) });
+    $(".validar-rut").on("keyup validar", function (ev) { validarCampo(this, tieneDatos, rutEsValido) });
+    $(".validar-texto").on("keyup validar", function (ev) { validarCampo(this, tieneDatos, esTexto) });
+    $(".validar-telefono").on("keyup validar", function (ev) { validarCampo(this, tieneDatos, telefonoEsValido) });
+    $(".validar-email").on("keyup validar", function (ev) { validarCampo(this, tieneDatos, emailEsValido) });
 
     $registro.addEventListener('submit', function (event) {
-        validarCampos();
+        for (let input of $(".validar"))
+            $(input).trigger("validar");
+        event.preventDefault();
+        event.stopPropagation();
+        if ($registro.checkValidity()) {
+            $($registro).hide();
+            $alerta.classList.remove("alert-danger");
+            $alerta.classList.add("alert-success");
+            $alerta.textContent = confirmacion;
+            setTimeout(function () { $registro.submit(); }, 1000);
+        } else {
+            $alerta.classList.remove("alert-success");
+            $alerta.classList.add("alert-danger");
+            $alerta.textContent = error;
+        }
+        $registro.classList.add('was-validated');
     }, false);
 
     $("#btnLimpiar").click(function (ev) {
@@ -26,112 +43,66 @@ function inicializar() {
         $alerta.textContent = "";
     });
 
-}
+});
 
-function mostrarMensaje(boolean) {
-    event.preventDefault();
-    event.stopPropagation();
-    if (boolean) {
-        $($registro).hide();
-        $alerta.classList.remove("alert-danger");
-        $alerta.classList.add("alert-success");
-        $alerta.textContent = "Sus datos fueron validados correctamente.";
-        setTimeout(function () {$registro.submit();}, 1000);
-    } else {
-        $alerta.classList.remove("alert-success");
-        $alerta.classList.add("alert-danger");
-        $alerta.textContent = "Error al validar sus datos, complete el formulario correctamente.";
-    }
-}
 
 // Validación de campos
 
-function validarCampos() {
-    for (let input of $inputs)
-        $(input).trigger("validar");
-    mostrarMensaje($registro.checkValidity());
-    $registro.classList.add('was-validated');
+function validarCampo(input, ...condiciones) {
+    var n = condiciones.length;
+    for (let i = 0; i < n; i++)
+        if (!validarCondicion(input, condiciones[i])) break;
 }
 
-function validarRequerido(input) {
+function validarCondicion(input, condicion) {
     var resultado;
-    if (input.value === "") {
-        input.setCustomValidity("Este campo es obligatorio.");
-        resultado = false;
-    } else {
+    if (condicion(input.value)) {
         input.setCustomValidity("");
         resultado = true;
+    } else {
+        input.setCustomValidity(condicion.error);
+        resultado = false;
     }
     $(input).next().text(input.validationMessage);
     return resultado;
 }
 
-function validarRut(input) {
-    if (validarRequerido(input)) {
-        if (rutEsValido(input.value))
-            input.setCustomValidity("");
-        else
-            input.setCustomValidity("Rut inválido.");
-        $(input).next().text(input.validationMessage);
-    }
-}
-
-function validarTexto(input) {
-    if (validarRequerido(input)) {
-        if (esTexto(input.value))
-            input.setCustomValidity("");
-        else
-            input.setCustomValidity("No se permiten números en este campo.");
-        $(input).next().text(input.validationMessage);
-    }
-}
-
-function validarTelefono(input) {
-    if (validarRequerido(input)) {
-        if (telefonoEsValido(input.value))
-            input.setCustomValidity("");
-        else
-            input.setCustomValidity("Número de teléfono inválido.");
-        $(input).next().text(input.validationMessage);
-    }
-}
-
-function validarEmail(input) {
-    if (validarRequerido(input)) {
-        if (emailEsValido(input.value))
-            input.setCustomValidity("");
-        else
-            input.setCustomValidity("Email inválido.");
-        $(input).next().text(input.validationMessage);
-    }
-}
 
 // Funciones de validación
 
-function esTexto(txt) {
-    for (let i = 0; i < txt.length; i++) {
-        if (!isNaN(txt.charAt(i)))
-            return false;
-    }
-    return true;
+function tieneDatos(txt) {
+    return !(txt.trim() === "");
 }
+tieneDatos.error = errorRequerido;
+
+function esTexto(txt) {
+    /*     for (let i = 0; i < txt.length; i++)
+            if (!(isNaN(txt.charAt(i)) || txt.charAt(i) === " "))
+                return false;
+        return true; */
+    return !/\d/.test(txt);
+}
+esTexto.error = errorTexto;
 
 function emailEsValido(email) {
-    return email.includes("@");
+    return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email);
 }
+emailEsValido.error = errorEmail;
 
 function telefonoEsValido(telefono) {
     telefono = telefono.replace(/\s/g, "");
-    var prefijo = telefono.substring(0, 4);
-    var numero = telefono.substring(4, telefono.length);
-    if (prefijo !== "+569")
-        return false;
-    if (isNaN(numero))
-        return false;
-    if (numero.length !== 8)
-        return false;
-    return true;
+    /*     var prefijo = telefono.substring(0, 4);
+        var numero = telefono.substring(4, telefono.length);
+        if (prefijo !== "+569")
+            return false;
+        if (isNaN(numero))
+            return false;
+        if (numero.length !== 8)
+            return false;
+        return true; */
+    return /^\+569\d{8}$/.test(telefono);
 }
+telefonoEsValido.error = errorTelefono;
 
 function rutEsValido(rut) {
     var rut = rut.replace(/[.-]/g, "").toLowerCase();
@@ -139,6 +110,7 @@ function rutEsValido(rut) {
     var digitos = rut.substring(0, rut.length - 1);
     return calcularDV(digitos) == dv;
 }
+rutEsValido.error = errorRut;
 
 function calcularDV(rutSinDV) {
 
@@ -152,7 +124,7 @@ function calcularDV(rutSinDV) {
          suma += rut[i] * factores[i % f]; */
 
     //arr.reduce(callback(acumulador, valorActual[, índice[, array]])[, valorInicial])
-    suma = rutSinDV.reduce((acc, d, i) => acc + d * factores[i%f], 0);
+    suma = rutSinDV.reduce((acc, d, i) => acc + d * factores[i % f], 0);
 
     var resto = 11 - suma % 11;
     var dv;
