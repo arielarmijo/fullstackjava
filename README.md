@@ -17,4 +17,5 @@ Construir una págna web responsiva básica utilizando HTML, CSS y JavaScript ac
 - [Actividad 13](https://cochayuyo.github.io/fullstackjava/mod3/act13/): Librerías para graficar datos.
 - [Actividad 14 y 15](https://cochayuyo.github.io/fullstackjava/mod3/act14/): Minimarket Mikasa. Carrito de compra, validación de formularios e indicadores económicos (ajax).
 - [Actividad 16 y 17](https://cochayuyo.github.io/fullstackjava/mod3/act16/): Cine Super Pelis. Interfaz de usuario interactiva.
-- [Evaluación 1](https://cochayuyo.github.io/fullstackjava/mod3/eval1/): Lavado de Autos Los Erens.
+- [Evaluación 1](https://cochayuyo.github.io/fullstackjava/mod3/eval1/): Lavado de Autos Los Erens (Formulario).
+- [Evaluación 2](https://cochayuyo.github.io/fullstackjava/mod3/eval2/): Lavado de Autos Los Erens (Validaciones).
