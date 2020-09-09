@@ -37,7 +37,7 @@ $(document).ready(function () {
     $(".validar-email").on("keyup validar", function (ev) { validarCampo(this, tieneDatos, emailEsValido) });
     $(".validar-seleccion").on("change validar", function (ev) { validarCampo(this, seleccionValida) });
 
-    console.log($("#rut").nextAll(".invalid-feedback"));
+    //console.log($("#rut").nextAll(".invalid-feedback"));
 
 });
 

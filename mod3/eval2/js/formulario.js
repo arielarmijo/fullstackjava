@@ -22,11 +22,14 @@ function agregarIVA(precioSinIVA) {
 }
 
 function calcularTotal() {
+    // TODO: Mejorar la asignación del precio
+    var precio = this.value === "Lavado Exterior " ? 5000 : 8000;
+
     if (this.checked)
-        totalAmount += agregarIVA(5000)
+        totalAmount += agregarIVA(precio)
 
     else
-        totalAmount -= agregarIVA(5000);
+        totalAmount -= agregarIVA(precio);
     Array.from($total).forEach(e => e.textContent = fmt.format(totalAmount));
 }
 
