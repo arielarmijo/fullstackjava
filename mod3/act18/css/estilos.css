@@ -1,0 +1,25 @@
+/* * {
+    border: 1px dotted gray;
+} */
+
+/* body {
+    background-color: lightcoral;
+} */
+
+#contenedor-boleta, #productos {
+    max-height: 50vw;
+    overflow: auto;
+}
+
+table tr td:not(:first-child), table tr th:not(:first-child) {
+    text-align: right;
+}
+
+.card input {
+    width: 62px;
+    text-align: center;
+}
+
+.card:hover {
+    border: 1px solid gray;
+}

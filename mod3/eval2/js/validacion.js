@@ -13,7 +13,7 @@ const error = "Error al validar sus datos, complete el formulario correctamente.
 const confirmacion = "Sus datos fueron validados correctamente.";
 
 // REFERENCIAS A ELEMENTOS DEL FORMULARIO
-var $formularioCliente, $formularioVehiculo, $formularioServicios;
+var $formularioCliente, $formularioVehiculo, $formularioServicios, $digitosRut, $dv, $errorRut;
 
 
 $(document).ready(function () {
@@ -21,6 +21,9 @@ $(document).ready(function () {
     $formularioCliente = document.querySelector('#formularioCliente');
     $formularioVehiculo = document.querySelector('#formularioVehiculo');
     $formularioServicios = document.querySelector('#formularioServicios');
+    $digitosRut = document.querySelector('#rut');
+    $dv = document.querySelector('#dv');
+    $errorRut = document.querySelector('#errorRut');
 
     // Asigna funciones de validación a cada control del formulario según sus clases de validación
     //$(".validar-requerido").on("keyup validar", function (ev) { validarCampo(this, tieneDatos) });
@@ -31,13 +34,11 @@ $(document).ready(function () {
     $(".validar-texto-100").on("keyup validar", function (ev) { validarCampo(this, tieneDatos, tieneMenosDe100Caracteres) });
     $(".validar-numero").on("keyup validar", function (ev) { validarCampo(this, tieneDatos, esNumero) });
     $(".validar-numero-4").on("keyup validar", function (ev) { validarCampo(this, tieneDatos, esNumero, tiene4Carateres ) });
-    $(".validar-numero-8").on("keyup validar", function (ev) { validarCampo(this, tieneDatos, esNumero, tiene8Carateres ) });
+    $(".validar-numero-8").on("keyup validar", function (ev) { validarCampo(this, tieneDatos, esNumero, tiene8Carateres) });
     $(".validar-dv").on("keyup validar", function (ev) { validarCampo(this, tieneDatos, esDigitoVerificador ) });
     $(".validar-telefono").on("keyup validar", function (ev) { validarCampo(this, tieneDatos, telefonoEsValido) });
     $(".validar-email").on("keyup validar", function (ev) { validarCampo(this, tieneDatos, emailEsValido) });
     $(".validar-seleccion").on("change validar", function (ev) { validarCampo(this, seleccionValida) });
-
-    //console.log($("#rut").nextAll(".invalid-feedback"));
 
 });
 

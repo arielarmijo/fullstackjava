@@ -19,3 +19,9 @@ Construir una págna web responsiva básica utilizando HTML, CSS y JavaScript ac
 - [Actividad 16 y 17](https://cochayuyo.github.io/fullstackjava/mod3/act16/): Cine Super Pelis. Interfaz de usuario interactiva.
 - [Evaluación 1](https://cochayuyo.github.io/fullstackjava/mod3/eval1/): Lavado de Autos Los Erens (Formulario).
 - [Evaluación 2](https://cochayuyo.github.io/fullstackjava/mod3/eval2/): Lavado de Autos Los Erens (Validaciones).
+
+## Módulo 4: Desarrollo de Aplicaciones Web Dinámicas con Java
+Construir una aplicación web dinámica utilizando el patrón MVC con vistas JSP y controladores Servlets para el despliegue de información de acuerdo a las especificaciones entregadas.
+- [Actividad 1 y 2](https://github.com/cochayuyo/fullstackjava/tree/master/mod4/act01): Diagramas UML.
+- [Actividad 3](https://github.com/cochayuyo/fullstackjava/tree/master/mod4/act03): Validación mediante JSP.
+- [Actividad 4](https://github.com/cochayuyo/fullstackjava/tree/master/mod4/act04): Validación mediante Servlets.

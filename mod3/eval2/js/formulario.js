@@ -4,7 +4,6 @@ const IVA = 0.19;
 const comuna = ["Seleccione comuna", "Cerrillos", "Cerro Navia", "Conchalí", "El Bosque", "Estación Central", "Huechuraba", "Independencia", "La Cisterna", "La Florida", "La Granja", "La Pintana", "La Reina", "Las Condes", "Lo Barnechea", "Lo Espejo", "Lo Prado", "Macul", "Maipú", "Ñuñoa", "Pedro Aguirre Cerda", "Peñalolén", "Providencia", "Pudahuel", "Quilicura", "Quinta Normal", "Recoleta", "Renca", "Santiago", "San Joaquín", "San Miguel", "San Ramón", "Vitacura", "Puente Alto", "Pirque", "San José de Maipo", "Colina", "Lampa", "Tiltil", "San Bernardo", "Buin", "Calera de Tango", "Paine", "Melipilla", "Alhué", "Curacaví", "María Pinto", "San Pedro", "Talagante", "El Monte", "Isla de Maipo", "Padre Hurtado", "Peñaflor"];
 const tipoVehiculo = ["Seleccione tipo vehículo", "Automovil", "Camión", "Camioneta", "Furgón", "Moto"];
 const encargado = ["Seleccione encargado", "Ariel Armijo", "Macarena Bolados", "Edgar Haro", "Juan Zamorano"];
-
 // formateador de precio
 const fmt = new Intl.NumberFormat('es-CL', {
     style: 'currency',
@@ -148,6 +147,7 @@ $(document).ready(function (event) {
     })
 
     $("#btnCancelar").click(function () {
+        $("#imprimir-boleta").html('');
         clearTimeout(timeoutFunction);
     });
 

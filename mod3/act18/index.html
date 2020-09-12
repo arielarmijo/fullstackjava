@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Pizzería Papá Juan</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/marquee.js"></script>
+    <script src="js/indicadores.js"></script>
+    <script src="js/validacion.js"></script>
+</head>
+
+<body>
+
+    <div class="container d-flex flex-column align-items-center">
+
+        <!--Navegación-->
+        <nav class="navbar navbar-expand-sm navbar-light bg-light border shadow mb-3">
+            <a href="index.html" class="navbar-brand d-flex align-items-center">
+                <img src="img/logo.png" width="90" height="90">
+                <h1 class="navbar-text ml-2 mb-0">Papá Juan</h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="navbarContent" class="collapse navbar-collapse justify-content-end">
+                <div class="navbar-nav">
+                    <a href="index.html" class="nav-link text-center active">Inicio</a>
+                    <a href="pedido.html" class="nav-link text-center">Pedido</a>
+                    <a href="registro.html" class="nav-link text-center">Registro</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Indicadores Económicos -->
+        <marquee id="indicadores" behavior="scroll" scrollamount="2" direction="left">
+            <span>Indicadores Económicos (<span id="fecha"></span>):</span>
+            <span>UF = <span id="uf"></span></span>
+            <span>UTM = <span id="utm"></span></span>
+            <span>Dolar = <span id="dolar"></span></span>
+        </marquee>
+
+        <div class="card-deck my-4">
+            <div class="card text-center">
+                <img src="img/productos/espanola.png" class="card-img-top" alt="Pizza Española">
+                <div class="card-body">
+                    <h5 class="card-title">Pizza Española</h5>
+                    <p class="card-text">¡Irresistible! Mozzarella, choricillos, jamón, tomates y pimenton.</p>
+                </div>
+            </div>
+
+            <div class="card text-center">
+                <img src="img/productos/italiana.png" class="card-img-top" alt="Pizza Italiana">
+                <div class="card-body">
+                    <h5 class="card-title">Pizza Italiana</h5>
+                    <p class="card-text">Si amas lo clásico, esta es tu pizza. Delicioso queso Mozzarella, jamón y
+                        tomate al oreganato.</p>
+                </div>
+            </div>
+
+            <div class="card text-center">
+                <img src="img/productos/pepperoni.png" class="card-img-top" alt="Pizza Pepperoni">
+                <div class="card-body">
+                    <h5 class="card-title">Pizza Pepperoni</h5>
+                    <p class="card-text">¡Para los amantes del pepperoni! Mozzarella y doble pepperoni.</p>
+                </div>
+            </div>
+
+            <div class="card text-center">
+                <img src="img/productos/vegetariana.png" class="card-img-top" alt="Pizza Vegetariana">
+                <div class="card-body">
+                    <h5 class="card-title">Pizza Vegetariana</h5>
+                    <p class="card-text">¡Deliciosa pizza vegetariana! Mozzarella, tomates, aceitunas, champiñones,
+                        pimenton verde y cebolla.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Mapa -->
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d349.9676301285252!2d-70.63564044499849!3d-33.43700830307608!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c59b6ea13f09%3A0x61586b9ec9ac7393!2sTelepizza%20Plaza%20Italia!5e0!3m2!1ses-419!2scl!4v1599524119018!5m2!1ses-419!2scl"
+            width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+            tabindex="0"></iframe>
+
+        <!--Footer-->
+        <footer class="bg-light border mt-3 py-3 text-center">
+            <h5>Pizzería Papá Juan &copy 2020</h5>
+        </footer>
+
+    </div>
+
+</body>
+
+</html>

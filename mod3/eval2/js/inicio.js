@@ -46,16 +46,17 @@ window.onload = function () {
             miNodoPrecio.classList.add('card-text');
             miNodoPrecio.textContent = '$' + info['precio'];
             // Boton 
-            let miNodoBoton = document.createElement('button');
+            let miNodoBoton = document.createElement('a');
             miNodoBoton.classList.add('btn', 'btn-primary');
-            miNodoBoton.textContent = '+';
+            miNodoBoton.href = "orden-trabajo.html";
+            miNodoBoton.textContent = 'Contratar';
             miNodoBoton.setAttribute('marcador', info['id']);
 
             // Insertamos
             miNodoCardBody.appendChild(miNodoImagen);
             miNodoCardBody.appendChild(miNodoTitle);
             miNodoCardBody.appendChild(miNodoPrecio);
-            // miNodoCardBody.appendChild(miNodoBoton);
+            miNodoCardBody.appendChild(miNodoBoton);
             miNodo.appendChild(miNodoCardBody);
             $items.appendChild(miNodo);
         }
@@ -63,4 +64,4 @@ window.onload = function () {
 
     // Inicio
     renderItems();
-} 
+}
