@@ -4,10 +4,16 @@
  * and open the template in the editor.
  */
 
-import act3.Inventario;
-import act3.Producto;
+import act4.Inventario;
+import act4.ItemBoleta;
+import act4.Producto;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -33,44 +39,53 @@ public class Validar extends HttpServlet {
     try (PrintWriter out = response.getWriter()) {
 
       String[] codigos = request.getParameterValues("producto");
-      
-      int[] cantidades = new int[codigos.length];
-      
-      for (int i = 0; i < codigos.length; i++) {
-        cantidades[i] = Integer.parseInt(request.getParameter("cantidad-" + codigos[i]));
+
+      if (codigos != null) {
+
+        List<ItemBoleta> boleta = new ArrayList<>();
+
+        for (String codigo : codigos) {
+          Producto producto = Inventario.buscarProductoPorCodigo(codigo);
+          int cantidad = Integer.parseInt(request.getParameter("cantidad-" + codigo));
+          boleta.add(new ItemBoleta(producto, cantidad, producto.getPrecio()));
+        }
+
+        int totalProductos = 0;
+        int total = 0;
+        int descuento = 0;
+
+        for (ItemBoleta item : boleta) {
+          totalProductos += item.getCantidad();
+          total += item.getCantidad() * item.getPrecio();
+        }
+
+        if (totalProductos >= 5) {
+          descuento = (int) Math.round(total * 0.03);
+        }
+
+        total -= descuento;
+        
+        DecimalFormat fmt = new DecimalFormat("$###,###");
+
+        // Envío de variables de un Servlet a un JSP
+        request.setAttribute("boleta", boleta);
+        request.setAttribute("descuento", fmt.format(descuento));
+        request.setAttribute("total", fmt.format(total));
+        request.getRequestDispatcher("boleta.jsp").forward(request, response);
+
+      } else {
+        out.println("<!DOCTYPE html>");
+        out.println("<html>");
+        out.println("<head>");
+        out.println("<link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css\">");
+        out.println("<title>Servlet validacion</title>");
+        out.println("</head>");
+        out.println("<body class=\"container\">");
+        out.println("<div class=\"alert alert-danger mt-5\">No se ha seleccionado ningún producto</div>");
+        out.println("<a href=\"productos.jsp\" class=\"btn btn-primary\">Volver</a>");
+        out.println("</body>");
+        out.println("</html>");
       }
-      
-      int totalProductos = 0;
-      
-      for (int n : cantidades) {
-        totalProductos += n;
-      }
-      
-      Producto[] productos = new Producto[codigos.length];
-      
-      for (int i = 0; i < codigos.length; i++) {
-        productos[i] = Inventario.buscarProductoPorCodigo(codigos[i]);
-        int stock = productos[i].getStock() - cantidades[i];
-        productos[i].setStock(stock);
-      }
-      
-      int total = 0;
-      
-      for (int i = 0; i < cantidades.length; i++) {
-        total += cantidades[i] * productos[i].getPrecio();
-      }
-      int descuento = 0;
-      if (totalProductos >= 5)
-        descuento = (int) Math.round(total * 0.03);
-      
-      total -= descuento;
-      
-      // Envío de variables de un Servlet a un JSP
-      request.setAttribute("productos", productos);
-      request.setAttribute("cantidades", cantidades);
-      request.setAttribute("descuento", descuento);
-      request.setAttribute("total", total);
-      request.getRequestDispatcher("compra.jsp").forward(request, response);
 
     }
   }

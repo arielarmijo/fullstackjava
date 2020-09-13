@@ -5,8 +5,8 @@
 --%>
 
 <%@page import="java.util.List"%>
-<%@page import="act3.Producto"%>
-<%@page import="act3.Inventario"%>
+<%@page import="act4.Producto"%>
+<%@page import="act4.Inventario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
@@ -20,7 +20,7 @@
     <div class="container">
       <h1 class="text-center my-4">Productos</h1>
       <% List<Producto> inventario = Inventario.getInventario(); %>
-      <form action="Validar" method="POST" class="shadow pb-3">
+      <form action="validar" method="POST" class="shadow pb-3">
         <table class="table table-striped table-bordered table-hover text-center">
           <thead>
             <tr>

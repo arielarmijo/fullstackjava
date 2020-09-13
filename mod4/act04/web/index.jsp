@@ -17,7 +17,7 @@
       <h1 class="text-center">Acceso</h1>
       <div class="row justify-content-center">
         <!-- FORMULARIO -->
-        <form action="Login" method="POST" class="d-inline-block p-3 border shadow">
+        <form action="login" method="POST" class="d-inline-block p-3 border shadow">
           <div class="form-group row justify-content-center">
             <label for="usuario" class="col-4 col-form-label text-right">Usuario:</label>
             <div class="col-8">
