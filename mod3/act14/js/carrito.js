@@ -13,8 +13,8 @@ var fmt = new Intl.NumberFormat('es-CL', {
 });
 
 // Crea el objeto producto
-function Producto(nombre, precio, img) {
-    this.id = this.id;
+function Producto(id, nombre, precio, img) {
+    this.id = id;
     //this.prototype.id++;
     //console.log(this.id);
     this.nombre = nombre;
@@ -22,7 +22,6 @@ function Producto(nombre, precio, img) {
     this.img = "img/productos/" + img;
 }
 
-Producto.prototype.id = 1;
 Producto.prototype.crearTarjeta = function () {
     // Tarjeta bootstrap
     var card = document.createElement("div");
@@ -37,7 +36,7 @@ Producto.prototype.crearTarjeta = function () {
     // Título
     var title = document.createElement("p");
     title.classList.add("card-title", "text-center");
-    title.textContent = this.nombre;
+    title.innerHTML = this.nombre;
     // Precio
     var text = document.createElement("p");
     text.classList.add("card-text", "text-right", "font-weight-bold");
