@@ -1,7 +1,7 @@
 var lastButton = null, currentButton = null, lastOperator = null, currentOperator = null;
 var clear = true, firstTime = true;
 var acc = 0;
-var fc = 10000; //
+var fc = 10000; // floating point correction
 
 var buttons = document.querySelectorAll('[type="button"]');
 
@@ -109,7 +109,6 @@ function btnDotPressed(event) {
         salida.innerHTML = "0" + this.innerHTML;
     } else if (!salida.textContent.includes("."))
         salida.innerHTML += this.innerHTML;
-
 }
 
 function opHistory(btn) {
